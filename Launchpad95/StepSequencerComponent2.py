@@ -498,7 +498,7 @@ class MelodicNoteEditorComponent(ControlSurfaceComponent):
 		assert (value in range(128))
 		if self.is_enabled() and self._clip != None:
 			self._random_button.set_on_off_values("StepSequencer2.Random.On", "StepSequencer2.Random.Off")
-			if ((value is 0) and (sender.is_momentary())):
+			if ((value == 0) and (sender.is_momentary())):
 				self._random_button.turn_off()
 				self._control_surface.show_message("randomise")
 				self._randomise()
@@ -560,7 +560,7 @@ class MelodicNoteEditorComponent(ControlSurfaceComponent):
 		assert (self._mode_notes_pitches_button != None)
 		assert (value in range(128))
 		if self.is_enabled() and self._clip != None:
-			if ((value is 0) and (sender.is_momentary())):
+			if ((value == 0) and (sender.is_momentary())):
 				self._is_notes_pitches_shifted = False
 				self._is_mute_shifted = False
 				self._is_velocity_shifted = False
@@ -608,7 +608,7 @@ class MelodicNoteEditorComponent(ControlSurfaceComponent):
 		assert (self._mode_notes_octaves_button != None)
 		assert (value in range(128))
 		if self.is_enabled() and self._clip != None:
-			if ((value is 0) and (sender.is_momentary())):
+			if ((value == 0) and (sender.is_momentary())):
 				self._is_notes_octaves_shifted = False
 				self.set_mode(STEPSEQ_MODE_NOTES_OCTAVES)
 				self._control_surface.show_message("octave")
@@ -644,7 +644,7 @@ class MelodicNoteEditorComponent(ControlSurfaceComponent):
 		assert (self._mode_notes_velocities_button != None)
 		assert (value in range(128))
 		if self.is_enabled() and self._clip != None:
-			if ((value is 0) and (sender.is_momentary())):
+			if ((value == 0) and (sender.is_momentary())):
 				self._is_mute_shifted = False
 				self._is_notes_velocities_shifted = False
 				self.set_mode(STEPSEQ_MODE_NOTES_VELOCITIES)
@@ -684,7 +684,7 @@ class MelodicNoteEditorComponent(ControlSurfaceComponent):
 		assert (self._mode_notes_lengths_button != None)
 		assert (value in range(128))
 		if self.is_enabled() and self._clip != None:
-			if ((value is 0) and (sender.is_momentary())):
+			if ((value == 0) and (sender.is_momentary())):
 				self._is_notes_lengths_shifted = False
 				self.set_mode(STEPSEQ_MODE_NOTES_LENGTHS)
 				self.update()
@@ -811,10 +811,3 @@ class StepSequencerComponent2(StepSequencerComponent):
 				self._osd.info[1] = "no clip selected"
 			self._osd.update()
 
-	def _update_mode_button(self):
-		if self.is_enabled():
-			if (self._mode_button != None):
-				self._mode_button.set_on_off_values("DefaultButton.Disaled")
-
-	def _mode_button_value(self, value, sender):
-		pass

@@ -9,10 +9,13 @@ from ConfigurableButtonElement import ConfigurableButtonElement
 from MainSelectorComponent import MainSelectorComponent
 from NoteRepeatComponent import NoteRepeatComponent
 from M4LInterface import M4LInterface
+from SkinMK1 import make_skin
 import Settings
 
 DO_COMBINE = Live.Application.combine_apcs()  # requires 8.2 & higher
-BYPASS_LP = True
+
+# This script targets the legacy (non RGB) Launchpad family only:
+# Launchpad (original), Launchpad S and Launchpad Mini MK1.
 
 class Launchpad(ControlSurface):
 
@@ -25,38 +28,28 @@ class Launchpad(ControlSurface):
         self._live_minor_version = live.get_minor_version()
         self._live_bugfix_version = live.get_bugfix_version()
         self._selector = None #needed because update hardware is called.
-        self._mk2_rgb = False
         with self.component_guard():
             self._suppress_send_midi = True
             self._suppress_session_highlight = True
-            self._set_suppress_features(True)            
+            self._set_suppress_features(True)
             self._control_is_with_automap = False
             self._user_byte_write_button = None
             self._config_button = None
             self._wrote_user_byte = False
             self._init_done = False
-        # caller will send challenge and we will continue as challenge is received.
+        # No handshake: the legacy Launchpad is the only supported model.
         self.init()
-            
+
     def init(self):
         #skip init if already done.
         if self._init_done:
             return
         self._init_done = True
-        
-        # second part of the __init__ after model has been identified using its challenge response
-        if self._mk2_rgb:
-            from SkinMK2 import make_skin
-            self._skin = make_skin()
-            self._side_notes = (89, 79, 69, 59, 49, 39, 29, 19)
-            #self._drum_notes = (20, 30, 31, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126)
-            self._drum_notes = (20, 30, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126)
-        else:
-            from SkinMK1 import make_skin # @Reimport
-            self._skin = make_skin()
-            self._side_notes = (8, 24, 40, 56, 72, 88, 104, 120)
-            self._drum_notes = (41, 42, 43, 44, 45, 46, 47, 57, 58, 59, 60, 61, 62, 63, 73, 74, 75, 76, 77, 78, 79, 89, 90, 91, 92, 93, 94, 95, 105, 106, 107)
-        
+
+        self._skin = make_skin()
+        self._side_notes = (8, 24, 40, 56, 72, 88, 104, 120)
+        self._drum_notes = (41, 42, 43, 44, 45, 46, 47, 57, 58, 59, 60, 61, 62, 63, 73, 74, 75, 76, 77, 78, 79, 89, 90, 91, 92, 93, 94, 95, 105, 106, 107)
+
         with self.component_guard():
             is_momentary = True
             self._config_button = ButtonElement(is_momentary, MIDI_CC_TYPE, 0, 0, optimized_send_midi=False)
@@ -70,11 +63,7 @@ class Launchpad(ControlSurface):
             for row in range(8):
                 button_row = []
                 for column in range(8):
-                    if self._mk2_rgb:
-                        # for mk2 buttons are assigned "top to bottom"
-                        midi_note = (81 - (10 * row)) + column
-                    else:
-                        midi_note = row * 16 + column
+                    midi_note = row * 16 + column
                     button = ConfigurableButtonElement(is_momentary, MIDI_NOTE_TYPE, 0, midi_note, skin = self._skin, control_surface = self)
                     button.name = str(column) + '_Clip_' + str(row) + '_Button'
                     button_row.append(button)
@@ -114,10 +103,7 @@ class Launchpad(ControlSurface):
             self.request_rebuild_midi_map()
             # and request update 
             self._selector.update()
-            if self._mk2_rgb:
-                self.log_message("LaunchPad95 (mk2) Loaded !")
-            else:
-                self.log_message("LaunchPad95 Loaded !")
+            self.log_message("LaunchPad95 Loaded !")
                 
     def _set_suppress_features(self, state):
         self._suppress_session_highlight = state # enable/disable the "Red box"
@@ -184,10 +170,6 @@ class Launchpad(ControlSurface):
     def refresh_state(self):
         ControlSurface.refresh_state(self)
         self.schedule_message(5, self._update_hardware)
-
-    def handle_sysex(self, midi_bytes):
-                        self._suppress_send_midi = False
-                        self.set_enabled(True)
 
     def build_midi_map(self, midi_map_handle):
         ControlSurface.build_midi_map(self, midi_map_handle)

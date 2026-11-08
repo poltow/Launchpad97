@@ -50,6 +50,7 @@ class TrackControllerComponent(MixerComponent):
 		self.set_stop_button(None)
 		self.set_session_record_button(None)
 		self.set_solo_button(None)
+		self.set_undo_button(None)
 		self.set_arm_button(None)
 
 		MixerComponent.disconnect(self)
@@ -179,7 +180,7 @@ class TrackControllerComponent(MixerComponent):
 		assert (self._next_track_button != None)
 		assert (value in range(128))
 		if self.is_enabled():
-			if not sender.is_momentary() or value is not 0:
+			if not sender.is_momentary() or value != 0:
 				if self.selected_track_idx < len(self.song().tracks) - 1:
 					self.song().view.selected_track = self.song().tracks[self.selected_track_idx + 1]
 					self._do_implicit_arm()
@@ -198,7 +199,7 @@ class TrackControllerComponent(MixerComponent):
 		assert (self._prev_track_button != None)
 		assert (value in range(128))
 		if self.is_enabled():
-			if not sender.is_momentary() or value is not 0:
+			if not sender.is_momentary() or value != 0:
 				if self.selected_track_idx > 0:
 					self.song().view.selected_track = self.song().tracks[self.selected_track_idx - 1]
 					self._do_implicit_arm()
@@ -225,7 +226,7 @@ class TrackControllerComponent(MixerComponent):
 		assert (self._prev_scene_button != None)
 		assert (value in range(128))
 		if self.is_enabled():
-			if not sender.is_momentary() or value is not 0:
+			if not sender.is_momentary() or value != 0:
 				if self.selected_scene_idx > 0:
 					self.song().view.selected_scene = self.song().scenes[self.selected_scene_idx - 1]
 				
@@ -233,7 +234,7 @@ class TrackControllerComponent(MixerComponent):
 		assert (self._next_scene_button != None)
 		assert (value in range(128))
 		if self.is_enabled():
-			if not sender.is_momentary() or value is not 0:
+			if not sender.is_momentary() or value != 0:
 				if self.selected_scene_idx < len(self.song().scenes) - 1:
 					self.song().view.selected_scene = self.song().scenes[self.selected_scene_idx + 1]			
 
@@ -332,7 +333,7 @@ class TrackControllerComponent(MixerComponent):
 		assert(self.selected_track != None)
 		if self.is_enabled():
 			now = int(round(time.time() * 1000))
-			if value != 0 or not self._session_record_button.is_momentary():
+			if value != 0 or not self._solo_button.is_momentary():
 				self._last_solo_button_press = now
 				self._solo_button.turn_on()
 			else:
@@ -354,7 +355,7 @@ class TrackControllerComponent(MixerComponent):
 	def _undo_value(self, value):
 		if self.is_enabled():
 			now = int(round(time.time() * 1000))
-			if value != 0 or not self._session_record_button.is_momentary():
+			if value != 0 or not self._undo_button.is_momentary():
 				self._last_undo_button_press = now
 			else:
 				if now - self._last_undo_button_press < self._long_press:

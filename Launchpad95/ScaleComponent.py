@@ -1,49 +1,110 @@
+"""
+ScaleComponent.py - Musical Scale Management for Launchpad95
+
+This module provides scale selection and management functionality for the
+Instrument mode of Launchpad95. It supports 34 musical scales including
+Western modes, pentatonics, blues, and world scales.
+
+Classes:
+    ScaleComponent: Main component for scale selection UI and state management
+    Scale: Base class representing a musical scale
+    Modus: Extended Scale class for generating scales from a root note
+    MelodicPattern: Generates note patterns for the Launchpad grid
+
+Usage:
+    The ScaleComponent is instantiated by InstrumentControllerComponent and
+    provides an interactive scale selection interface on the 8x8 matrix.
+"""
+
 from _Framework.ControlSurfaceComponent import ControlSurfaceComponent
 
+# Note names for display purposes
 KEY_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+# Circle of fifths for navigation: C, G, D, A, E, B, F#, C#, G#, D#, A#, F
 CIRCLE_OF_FIFTHS = [7 * k % 12 for k in range(12)]
-# KEY_CENTERS = CIRCLE_OF_FIFTHS[0:6] + CIRCLE_OF_FIFTHS[-1:5:-1]
 
+# Musical modes and scales - each entry is [name, intervals]
+# Intervals are semitones from root (0 = root note)
 MUSICAL_MODES = [
+	# Western Church Modes (Row 1 in scale selector)
+	'Major',			[0, 2, 4, 5, 7, 9, 11],      # Ionian mode
+	'Minor',			[0, 2, 3, 5, 7, 8, 10],      # Aeolian / Natural minor
+	'Dorian',			[0, 2, 3, 5, 7, 9, 10],      # Minor with raised 6th
+	'Mixolydian',		[0, 2, 4, 5, 7, 9, 10],      # Major with flat 7th
+	'Lydian',			[0, 2, 4, 6, 7, 9, 11],      # Major with raised 4th
+	'Phrygian',			[0, 1, 3, 5, 7, 8, 10],      # Minor with flat 2nd
+	'Locrian',			[0, 1, 3, 5, 6, 8, 10],      # Diminished mode
+	'Diminished',		[0, 1, 3, 4, 6, 7, 9, 10],   # Half-whole diminished
 
-	'Major',			[0, 2, 4, 5, 7, 9, 11],
-	'Minor',			[0, 2, 3, 5, 7, 8, 10],
-	'Dorian',			[0, 2, 3, 5, 7, 9, 10],
-	'Mixolydian',		[0, 2, 4, 5, 7, 9, 10],
-	'Lydian',			[0, 2, 4, 6, 7, 9, 11],
-	'Phrygian',			[0, 1, 3, 5, 7, 8, 10],
-	'Locrian',			[0, 1, 3, 5, 6, 8, 10],
-	'Diminished',		[0, 1, 3, 4, 6, 7, 9, 10],
+	# Extended Scales (Row 2 in scale selector)
+	'Whole-half',		[0, 2, 3, 5, 6, 8, 9, 11],   # Whole-half diminished
+	'Whole Tone',		[0, 2, 4, 6, 8, 10],         # All whole steps
+	'Minor Blues',		[0, 3, 5, 6, 7, 10],         # Blues scale
+	'Minor Pentatonic', [0, 3, 5, 7, 10],            # 5-note minor
+	'Major Pentatonic', [0, 2, 4, 7, 9],             # 5-note major
+	'Harmonic Minor',	[0, 2, 3, 5, 7, 8, 11],      # Minor with raised 7th
+	'Melodic Minor',	[0, 2, 3, 5, 7, 9, 11],      # Jazz melodic minor
+	'Super Locrian',	[0, 1, 3, 4, 6, 8, 10],      # Altered scale
 
-	'Whole-half',		[0, 2, 3, 5, 6, 8, 9, 11],
-	'Whole Tone',		[0, 2, 4, 6, 8, 10],
-	'Minor Blues',		[0, 3, 5, 6, 7, 10],
-	'Minor Pentatonic', [0, 3, 5, 7, 10],
-	'Major Pentatonic', [0, 2, 4, 7, 9],
-	'Harmonic Minor',	[0, 2, 3, 5, 7, 8, 11],
-	'Melodic Minor',	[0, 2, 3, 5, 7, 9, 11],
-	'Super Locrian',	[0, 1, 3, 4, 6, 8, 10],
+	# World Scales (Row 3 in scale selector)
+	'Bhairav',			[0, 1, 4, 5, 7, 8, 11],      # Indian classical (Mayamalavagowla)
+	'Hungarian Minor',	[0, 2, 3, 6, 7, 8, 11],      # Double harmonic minor
+	'Minor Gypsy',		[0, 1, 4, 5, 7, 8, 10],      # Gypsy scale
+	'Hirojoshi',		[0, 2, 3, 7, 8],             # Japanese pentatonic
+	'In-Sen',			[0, 1, 5, 7, 10],            # Japanese scale
+	'Iwato',			[0, 1, 5, 6, 10],            # Japanese scale
+	'Kumoi',			[0, 2, 3, 7, 9],             # Japanese pentatonic
+	'Pelog',			[0, 1, 3, 4, 7, 8],          # Indonesian gamelan
 
-	'Bhairav',			[0, 1, 4, 5, 7, 8, 11],
-	'Hungarian Minor',	[0, 2, 3, 6, 7, 8, 11],
-	'Minor Gypsy',		[0, 1, 4, 5, 7, 8, 10],
-	'Hirojoshi',		[0, 2, 3, 7, 8],
-	'In-Sen',			[0, 1, 5, 7, 10],
-	'Iwato',			[0, 1, 5, 6, 10],
-	'Kumoi',			[0, 2, 3, 7, 9],
-	'Pelog',			[0, 1, 3, 4, 7, 8],
+	# Additional Scales (Row 4 in scale selector)
+	'Spanish',			[0, 1, 3, 4, 5, 6, 8, 10],   # Phrygian dominant
+	'IonEol',			[0, 2, 3, 4, 5, 7, 8, 9, 10, 11], # Combined Ionian/Aeolian
 
-	'Spanish',			[0, 1, 3, 4, 5, 6, 8, 10],
-	'IonEol',			[0, 2, 3, 4, 5, 7, 8, 9, 10, 11]
+	# NEW SCALES (v2.0)
+	'Arabic',			[0, 1, 4, 5, 7, 8, 11],      # Double harmonic major
+	'Japanese',			[0, 1, 5, 7, 8],             # Hirajoshi variant (In scale)
+	'Enigmatic',		[0, 1, 4, 6, 8, 10, 11],     # Verdi's enigmatic scale
+	'Neapolitan',		[0, 1, 3, 5, 7, 9, 11],      # Neapolitan major
+	'Persian',			[0, 1, 4, 5, 6, 8, 11],      # Persian scale
+	'Algerian',			[0, 2, 3, 5, 6, 7, 8, 11],   # Algerian scale
+	'Acoustic',			[0, 2, 4, 6, 7, 9, 10],      # Lydian dominant / Overtone
+	'Blues Major',		[0, 2, 3, 4, 7, 9],          # Major blues scale
 ]
 
-TOP_OCTAVE = {"chromatic_gtr": 7, "diatonic_ns": 2, "diatonic_chords": 7, "diatonic": 6,  
-			"chromatic": 7}
+# Maximum octave per mode (limits based on MIDI range)
+TOP_OCTAVE = {
+	"chromatic_gtr": 7,
+	"diatonic_ns": 2,
+	"diatonic_chords": 7,
+	"diatonic": 6,
+	"chromatic": 7
+}
 
 
 class ScaleComponent(ControlSurfaceComponent):
-	
-	#matrix = control_matrix(PlayableControl)
+	"""
+	Component for musical scale selection and management.
+
+	Provides an interactive 8x8 matrix interface for selecting:
+	- Scale mode (diatonic, chromatic, drum rack, etc.)
+	- Root note (C through B)
+	- Octave range (-2 to 5+)
+	- Musical scale/modus (34 available scales)
+
+	The scale selection affects how notes are mapped to the Launchpad
+	grid in Instrument mode.
+
+	Attributes:
+		_modus (int): Index of current scale in MUSICAL_MODES
+		_key (int): Root note (0=C, 1=C#, ... 11=B)
+		_octave (int): Current octave offset
+		_mode (str): Layout mode ('diatonic', 'chromatic', 'chromatic_gtr', etc.)
+		_is_drumrack (bool): True if controlling a drum rack
+		_quick_scale (bool): Quick scale selection mode enabled
+		_is_horizontal (bool): Horizontal vs vertical note layout
+		_is_absolute (bool): Absolute vs relative root positioning
+	"""
 
 	def __init__(self, control_surface = None, enabled = False, mode = "diatonic", *a, **k):
 		self._layout_set = False
@@ -460,6 +521,13 @@ class ScaleComponent(ControlSurfaceComponent):
 	
 	
 	def get_pattern(self):
+		"""
+		Generate a MelodicPattern for the current scale settings.
+
+		Returns:
+			MelodicPattern: Pattern object that maps grid coordinates to MIDI notes
+			based on the current scale, key, octave, and layout settings.
+		"""
 		notes = self.notes
 		# origin
 		if not self._is_absolute:
@@ -501,8 +569,14 @@ class ScaleComponent(ControlSurfaceComponent):
 		
 
 class Scale(object):
+	"""
+	Represents a musical scale with a name and note intervals.
 
-	# Input vars: scale name, array of scale steps -> (ScaleName, ScaleSteps)
+	Attributes:
+		name (str): Display name of the scale (e.g., "C Major")
+		notes (list): List of MIDI note numbers in the scale
+	"""
+
 	def __init__(self, name, notes, *a, **k):
 		super(Scale, self).__init__(*a, **k)
 		self.name = name
@@ -510,6 +584,17 @@ class Scale(object):
 
 
 class Modus(Scale):
+	"""
+	Extended Scale class that can generate scales from any root note.
+
+	A Modus stores the interval pattern of a scale and can generate
+	concrete Scale objects transposed to any root note.
+
+	Example:
+		major = Modus('Major', [0, 2, 4, 5, 7, 9, 11])
+		c_major = major.scale(0)  # C Major
+		g_major = major.scale(7)  # G Major
+	"""
 
 	def __init__(self, *a, **k):
 		super(Modus, self).__init__(*a, **k)
@@ -522,6 +607,25 @@ class Modus(Scale):
 
 
 class MelodicPattern(object):
+	"""
+	Generates note patterns for mapping grid coordinates to MIDI notes.
+
+	This class handles the complex mapping of Launchpad grid positions
+	to MIDI notes based on scale, layout mode, and various display options.
+
+	Attributes:
+		steps (list): [x_step, y_step] - intervals between adjacent buttons
+		scale (list): Note values in the current scale
+		base_note (int): MIDI note number for octave 0 of the scale
+		origin (list): [x_origin, y_origin] - offset for pattern start
+		valid_notes (range): Valid MIDI note range (0-127)
+		chromatic_mode (bool): True for chromatic layout
+		chromatic_gtr_mode (bool): True for guitar-style chromatic
+		diatonic_ns_mode (bool): True for non-staggered diatonic
+
+	Methods:
+		note(x, y): Returns NoteInfo for grid position (x, y)
+	"""
 
 	def __init__(self,
 	 		steps=[0, 0], 

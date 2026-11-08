@@ -422,7 +422,7 @@ class NoteEditorComponent(ControlSurfaceComponent):
 		assert (self._velocity_button != None)
 		assert (value in range(128))
 		if self.is_enabled():
-			if ((value is 0) or (not sender.is_momentary())):
+			if ((value == 0) or (not sender.is_momentary())):
 				# button released, check if was used to modify notes or just to cycle thru velocity values
 				if self._velocity_notes_pressed == 0 and time.time() - self._velocity_last_press < self.long_button_press:
 					# cycle thru velocities
@@ -433,7 +433,7 @@ class NoteEditorComponent(ControlSurfaceComponent):
 					self._stepsequencer._track_controller._do_implicit_arm(False)
 				self._is_velocity_shifted = False
 				self._update_velocity_button()
-			if ((value is not 0) or (not sender.is_momentary())):
+			if ((value != 0) or (not sender.is_momentary())):
 				# button pressed
 				self._velocity_notes_pressed = 0
 				self._is_velocity_shifted = True

@@ -130,7 +130,7 @@ class NoteSelectorComponent(ControlSurfaceComponent):
         assert (self._down_button != None)
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
-            if value is not 0 or not sender.is_momentary():
+            if value != 0 or not sender.is_momentary():
                 if self.should_scroll():
                     self.scroll_down()
                 else:
@@ -174,7 +174,7 @@ class NoteSelectorComponent(ControlSurfaceComponent):
         assert (self._up_button != None)
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
-            if value is not 0 or not sender.is_momentary(): #If NOTEON or is Toggle
+            if value != 0 or not sender.is_momentary(): #If NOTEON or is Toggle
                 #IF [mute_shift and NormalMode-> move(1)] [not mute_shift and MultinoteMode-> move(1)] ELSE move(12|16)_dependingIfdrumRack
                 if self.should_scroll():
                     self.scroll_up()
@@ -1343,7 +1343,7 @@ class StepSequencerComponent(CompoundComponent):
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
             now = time.time()
-            if ((value is not 0) or (not sender.is_momentary())):
+            if ((value != 0) or (not sender.is_momentary())):
                 self._is_mute_shifted = not self._is_mute_shifted
             else:
                 if now - self._last_mute_shift_button_press> 0.25:
@@ -1382,7 +1382,7 @@ class StepSequencerComponent(CompoundComponent):
         assert (self._mode_button != None)
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
-            if ((value is not 0) or (not sender.is_momentary())):
+            if ((value != 0) or (not sender.is_momentary())):
                 self._last_mode_button_press = time.time()
             else:
                 if self._mode == STEPSEQ_MODE_MULTINOTE and time.time() - self._last_mode_button_press > 0.25:
@@ -1423,7 +1423,7 @@ class StepSequencerComponent(CompoundComponent):
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
             now = time.time()
-            if ((value is not 0) or (not sender.is_momentary())):
+            if ((value != 0) or (not sender.is_momentary())):
                 self._last_quantize_button_press = now
             else:
                 if now - self._last_quantize_button_press > 0.5:
@@ -1474,7 +1474,7 @@ class StepSequencerComponent(CompoundComponent):
                     else:
                         self._lock_button.turn_off()
                 else:
-                    self._lock_button.set_light("DefaultButton.Disable")
+                    self._lock_button.set_light("DefaultButton.Disabled")
 
     def set_lock_button(self, button):
         assert (isinstance(button, (ButtonElement, type(None))))
@@ -1533,7 +1533,7 @@ class StepSequencerComponent(CompoundComponent):
         assert (self._right_button != None)
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
-            if ((value is not 0) or (not sender.is_momentary())):
+            if ((value != 0) or (not sender.is_momentary())):
                 self._loop_selector.scroll(1)
                 self._note_editor.request_display_page()
                 self.update()
@@ -1561,10 +1561,10 @@ class StepSequencerComponent(CompoundComponent):
                 self._left_button.add_value_listener(self._left_value, identify_sender=True)
 
     def _left_value(self, value, sender):
-        assert (self._right_button != None)
+        assert (self._left_button != None)
         assert (value in range(128))
         if self.is_enabled() and self._clip != None:
-            if ((value is not 0) or (not sender.is_momentary())):
+            if ((value != 0) or (not sender.is_momentary())):
                 self._loop_selector.scroll(-1)
                 self._note_editor.request_display_page()
                 self.update()

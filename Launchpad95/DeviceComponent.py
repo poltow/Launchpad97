@@ -150,7 +150,7 @@ class DeviceComponent(LiveDeviceComponent):
                     self._osd.attribute_names[i] = str(slider._parameter_to_map_to.name)
                     try:
                         self._osd.attributes[i] = str(slider._parameter_to_map_to)
-                    except:
+                    except Exception:
                         self._osd.attributes[i] = str(slider._parameter_to_map_to.value)
                 else:
                     self._osd.attribute_names[i] = " "
@@ -254,7 +254,7 @@ class DeviceComponent(LiveDeviceComponent):
                 for x in range(self._matrix.width()):
                     for y in range(self._matrix.height()):
                         if self._force:
-                            self._matrix.get_button(x, y).set_on_off_values("DefaulyButton.Disabled","DefaultButton.Disabled")
+                            self._matrix.get_button(x, y).set_on_off_values("DefaultButton.Disabled","DefaultButton.Disabled")
                             self._matrix.get_button(x, y).turn_off()
                         
             # update parent
@@ -389,7 +389,7 @@ class DeviceComponent(LiveDeviceComponent):
                     self._precision_button.turn_off()
 
     def _precision_value(self, value, sender):
-        if ((not sender.is_momentary()) or (value is not 0)):
+        if ((not sender.is_momentary()) or (value != 0)):
             if (self._precision_button != None and self.is_enabled()):
                 self._precision_mode = not self._precision_mode
                 self.update_precision_button()
@@ -474,7 +474,7 @@ class DeviceComponent(LiveDeviceComponent):
         assert (self._next_track_button != None)
         assert (value in range(128))
         if self.is_enabled():
-            if ((not sender.is_momentary()) or (value is not 0)):
+            if ((not sender.is_momentary()) or (value != 0)):
                 if(self.selected_track_idx < len(self.song().tracks) - 1 and not self._is_locked_to_device):
                     self.song().view.selected_track = self.song().tracks[self.selected_track_idx + 1]
                     self.update()
@@ -493,7 +493,7 @@ class DeviceComponent(LiveDeviceComponent):
     def _prev_track_value(self, value, sender):
         assert (self._prev_track_button != None)
         assert (value in range(128))
-        if ((not sender.is_momentary()) or (value is not 0)):
+        if ((not sender.is_momentary()) or (value != 0)):
             if self.is_enabled():
                 if(self.selected_track_idx > 0 and not self._is_locked_to_device):
                     self.song().view.selected_track = self.song().tracks[self.selected_track_idx - 1]
@@ -547,7 +547,7 @@ class DeviceComponent(LiveDeviceComponent):
         assert (self._next_device_button != None)
         assert (value in range(128))
         if self.is_enabled():
-            if ((not sender.is_momentary()) or (value is not 0)):
+            if ((not sender.is_momentary()) or (value != 0)):
                 if self.selected_track() != None and len(self.selected_track().devices) > 0:
                     if(self.selected_device_idx < len(self.selected_track().devices) - 1 and not self._is_locked_to_device):
                         direction = Live.Application.Application.View.NavDirection.right
@@ -569,7 +569,7 @@ class DeviceComponent(LiveDeviceComponent):
         assert (self._prev_device_button != None)
         assert (value in range(128))
         if self.is_enabled():
-            if ((not sender.is_momentary()) or (value is not 0)):
+            if ((not sender.is_momentary()) or (value != 0)):
                 if self.selected_track() != None and len(self.selected_track().devices) > 0:
                     if(self.selected_device_idx > 0 and not self._is_locked_to_device):
                         direction = Live.Application.Application.View.NavDirection.left

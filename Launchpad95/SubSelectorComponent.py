@@ -56,7 +56,7 @@ class SubSelectorComponent(ModeSelectorComponent):
 		ModeSelectorComponent.disconnect(self)
 
 	def set_update_callback(self, callback):
-		assert (dir(callback).count("im_func") is 1)
+		assert (dir(callback).count("im_func") == 1)
 		self._update_callback = callback
 
 	def set_modes_buttons(self, buttons):

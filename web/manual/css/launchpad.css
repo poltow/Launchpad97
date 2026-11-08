@@ -1,0 +1,327 @@
+/* Launchpad95 Manual - Launchpad Diagram Styles */
+
+/* Launchpad Container */
+.launchpad-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.launchpad {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 2px solid #333;
+}
+
+.launchpad-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 6px;
+}
+
+/* Base button style */
+.lp-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    background: linear-gradient(145deg, #555, #3a3a3a);
+    border: 1px solid #222;
+    color: #888;
+    padding: 4px;
+    line-height: 1.2;
+}
+
+.lp-btn:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.lp-btn:active {
+    transform: scale(0.95);
+}
+
+/* Top row - Round buttons */
+.lp-btn.top {
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    margin: 3px;
+}
+
+/* Side column - Round buttons */
+.lp-btn.side {
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    margin: 3px;
+}
+
+/* Color states */
+.lp-btn.off {
+    background: linear-gradient(145deg, #444, #333);
+    color: #666;
+}
+
+.lp-btn.green {
+    background: linear-gradient(145deg, #44cc55, #22aa33);
+    color: #002200;
+    box-shadow: 0 0 15px rgba(68, 204, 85, 0.4);
+}
+
+.lp-btn.green-dim {
+    background: linear-gradient(145deg, #227733, #115522);
+    color: #003300;
+}
+
+.lp-btn.red {
+    background: linear-gradient(145deg, #ff4444, #cc2222);
+    color: #220000;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+}
+
+.lp-btn.red-dim {
+    background: linear-gradient(145deg, #882222, #551111);
+    color: #330000;
+}
+
+.lp-btn.amber {
+    background: linear-gradient(145deg, #ffaa44, #cc8822);
+    color: #221100;
+    box-shadow: 0 0 15px rgba(255, 170, 68, 0.4);
+}
+
+.lp-btn.amber-dim {
+    background: linear-gradient(145deg, #885522, #553311);
+    color: #331100;
+}
+
+.lp-btn.yellow {
+    background: linear-gradient(145deg, #ffff44, #cccc22);
+    color: #222200;
+    box-shadow: 0 0 15px rgba(255, 255, 68, 0.4);
+}
+
+/* Tooltip */
+.lp-btn[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lp-btn[data-tooltip]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+}
+
+/* Empty placeholder for grid alignment */
+.lp-empty {
+    width: 50px;
+    height: 50px;
+}
+
+/* Button groups */
+.button-group {
+    margin: 2rem 0;
+}
+
+.button-group-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Legend */
+.launchpad-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.legend-color.green { background: #44cc55; }
+.legend-color.red { background: #ff4444; }
+.legend-color.amber { background: #ffaa44; }
+.legend-color.off { background: #444; }
+
+/* Button mapping table */
+.button-mapping {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.button-mapping .btn-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.button-mapping .btn-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.button-mapping .btn-function {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Side button list */
+.side-buttons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.side-button-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border-left: 3px solid var(--border-color);
+}
+
+.side-button-item.active {
+    border-left-color: var(--primary-color);
+}
+
+.side-button-item .btn-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.side-button-item .btn-info {
+    flex: 1;
+}
+
+.side-button-item .btn-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.side-button-item .btn-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Interactive mode selector */
+.mode-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.mode-selector button {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mode-selector button:hover {
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.mode-selector button.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .lp-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.5rem;
+    }
+
+    .lp-btn.top,
+    .lp-btn.side {
+        width: 32px;
+        height: 32px;
+    }
+
+    .launchpad {
+        padding: 12px;
+    }
+
+    .launchpad-grid {
+        gap: 4px;
+    }
+}

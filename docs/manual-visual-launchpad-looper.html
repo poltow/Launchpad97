@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>LaunchpadLooper, referencia visual</title>
+<style>
+  @page { size: A4 landscape; margin: 8mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; color: #111;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif; font-size: 9.5pt; line-height: 1.25; }
+  .page { width: 281mm; height: 194mm; page-break-after: always; position: relative; overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+  @page portrait { size: A4 portrait; margin: 8mm; }
+  .page.portrait { page: portrait; width: 194mm; height: 281mm; }
+  h1 { font-size: 15pt; margin: 0 0 1mm 0; letter-spacing: .02em; }
+  h2 { font-size: 10.5pt; margin: 0 0 1.5mm 0; text-transform: uppercase; letter-spacing: .06em; color: #333; }
+  .sub { color: #555; margin: 0 0 4mm 0; font-size: 8.5pt; }
+  .cols { display: flex; gap: 6mm; align-items: flex-start; }
+  .col { flex: 1 1 0; min-width: 0; }
+
+  /* --- LED swatches ---------------------------------------------------- */
+  .led { display: inline-block; width: 4mm; height: 4mm; border-radius: 1mm; vertical-align: -0.8mm;
+    border: 0.25mm solid #0006; margin-right: 1.2mm; }
+  .led.half { position: relative; overflow: hidden; }
+  .led.half::after { content: ""; position: absolute; inset: 0; left: 50%; background: var(--b); }
+  .off { background: #cfcfcf; }
+  .red { background: #e4221a; }      .red3 { background: #f3a9a4; }
+  .mand { background: #f05a1e; }
+  .orange { background: #f58220; }   .orange2 { background: #f9bd86; }
+  .amber { background: #f6a21a; }    .amber3 { background: #fbd9a3; }
+  .yellow { background: #f2d21f; }
+  .lime { background: #b6d81e; }
+  .green { background: #2fb43a; }    .green3 { background: #b4e3b8; }
+
+  /* --- Launchpad drawing ---------------------------------------------- */
+  .lp { flex: 0 0 86mm; width: 86mm; }
+  .col.mid { flex: 0 0 118mm; }
+  .col.right { flex: 1 1 0; }
+  .lp svg { width: 100%; height: auto; display: block; }
+
+  /* --- top buttons table ------------------------------------------------ */
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+  td, th { padding: 1mm 1.5mm; vertical-align: top; border-bottom: 0.2mm solid #ddd; text-align: left; }
+  th { font-size: 8pt; text-transform: uppercase; letter-spacing: .05em; color: #555; }
+  col.c1 { width: 34mm; } col.c2 { width: 30mm; }
+  td.n { font-weight: 700; }
+  td.n small { font-weight: 400; color: #555; display: block; font-size: 7.5pt; }
+  .k { font-weight: 700; }
+  ul { margin: 0; padding-left: 4mm; }
+  li { margin: 0 0 0.8mm 0; }
+  .box { border: 0.3mm solid #999; border-radius: 1.5mm; padding: 2mm 2.5mm; margin-bottom: 3mm; }
+  .box.warn { border-color: #e4221a; }
+
+  /* --- strips (page 2) -------------------------------------------------- */
+  .strip-title { font-size: 9pt; margin: 4mm 0 1.5mm 0; }
+  .strip { display: flex; border: 0.3mm dashed #888; }
+  .strip .cell { border-right: 0.2mm solid #aaa; padding: 1mm 1mm 1.2mm 1mm; text-align: center;
+    display: flex; flex-direction: column; justify-content: flex-start; }
+  .strip .cell:last-child { border-right: none; }
+  .strip .name { font-weight: 800; font-size: 7.5pt; letter-spacing: .02em; line-height: 1.1; }
+  .strip .name .led { width: 2.6mm; height: 2.6mm; margin-right: 0.8mm; vertical-align: -0.3mm; }
+  .strip .hint { font-size: 5.6pt; color: #222; line-height: 1.15; margin-top: 0.6mm; }
+  .strip .hint b { font-weight: 700; }
+  .strip.full .cell { width: 24mm; height: 13mm; }
+  .strip.mini .cell { width: 19mm; height: 12mm; }
+  .strip.mini .name { font-size: 6.5pt; }
+  .strip.mini .hint { font-size: 5pt; }
+  .vstrip { display: inline-flex; flex-direction: column; border: 0.3mm dashed #888; vertical-align: top; margin-right: 8mm; }
+  .vstrip .cell { border-bottom: 0.2mm solid #aaa; padding: 0.8mm 1mm; text-align: left; }
+  .vstrip .cell:last-child { border-bottom: none; }
+  .vstrip.full .cell { height: 24mm; width: 26mm; }
+  .vstrip.mini .cell { height: 19mm; width: 22mm; }
+  .vstrip .name { font-weight: 800; font-size: 7pt; }
+  .vstrip .hint { font-size: 5.8pt; line-height: 1.2; color: #222; }
+  .vstrip.mini .hint { font-size: 5.2pt; }
+  .ruler { position: relative; height: 6mm; width: 100mm; border-left: 0.3mm solid #000; border-right: 0.3mm solid #000; border-bottom: 0.3mm solid #000; margin-top: 2mm;
+    background: repeating-linear-gradient(to right, #000 0, #000 0.25mm, transparent 0.25mm, transparent 10mm); }
+  .ruler span { position: absolute; top: -3.5mm; left: 0; font-size: 7pt; }
+  .note { font-size: 8pt; color: #444; margin-top: 2mm; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PÁGINA 1: TARJETA DE REFERENCIA ======================= -->
+<section class="page">
+  <h1>LaunchpadLooper · referencia rápida</h1>
+  <p class="sub">8 pistas × 8 escenas fijas. Cuantización de lanzamiento de Live en 1 compás. Cada acción deja un texto en la barra de estado de Live, abajo a la izquierda.</p>
+
+  <div class="cols">
+
+    <!-- Columna 1: dibujo del Launchpad -->
+    <div class="col lp">
+      <svg viewBox="0 0 236 236" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+        <defs>
+          <style>
+            .pad { rx: 2; ry: 2; stroke: #0006; stroke-width: .5; }
+            .btn { stroke: #0006; stroke-width: .5; }
+            .lbl { font-size: 4.6px; font-weight: 700; text-anchor: middle; fill: #111; }
+            .lbl2 { font-size: 3.5px; text-anchor: middle; fill: #333; }
+            .num { font-size: 4.5px; text-anchor: middle; fill: #111; font-weight: 700; }
+            .snum { font-size: 3.4px; text-anchor: middle; fill: #333; }
+          </style>
+        </defs>
+        <rect x="1" y="1" width="234" height="234" rx="8" fill="#2b2b2b"/>
+        <!-- fila superior: 8 botones redondos -->
+        <g>
+          <circle class="btn" cx="24" cy="18" r="7" fill="#2fb43a"/>
+          <circle class="btn" cx="48" cy="18" r="7" fill="#f58220"/>
+          <circle class="btn" cx="72" cy="18" r="7" fill="#f2d21f"/>
+          <circle class="btn" cx="96" cy="18" r="7" fill="#e4221a"/>
+          <circle class="btn" cx="120" cy="18" r="7" fill="#f6a21a"/>
+          <circle class="btn" cx="144" cy="18" r="7" fill="#f05a1e"/>
+          <circle class="btn" cx="168" cy="18" r="7" fill="url(#rb)"/>
+          <circle class="btn" cx="192" cy="18" r="7" fill="#2fb43a"/>
+          <linearGradient id="rb" x1="0" x2="1"><stop offset="0" stop-color="#e4221a"/><stop offset=".5" stop-color="#f2d21f"/><stop offset="1" stop-color="#2fb43a"/></linearGradient>
+          <text class="lbl" x="24" y="31" fill="#fff" style="fill:#fff">UNDO</text>
+          <text class="lbl" x="48" y="31" style="fill:#fff">FIXED L.</text>
+          <text class="lbl" x="72" y="31" style="fill:#fff">QUANT.</text>
+          <text class="lbl" x="96" y="31" style="fill:#fff">DELETE</text>
+          <text class="lbl" x="120" y="31" style="fill:#fff">STOP</text>
+          <text class="lbl" x="144" y="31" style="fill:#fff">COPY</text>
+          <text class="lbl" x="168" y="31" style="fill:#fff">SNAP</text>
+          <text class="lbl" x="192" y="31" style="fill:#fff">PULSO</text>
+          <text class="snum" x="24" y="8" style="fill:#bbb">1</text>
+          <text class="snum" x="48" y="8" style="fill:#bbb">2</text>
+          <text class="snum" x="72" y="8" style="fill:#bbb">3</text>
+          <text class="snum" x="96" y="8" style="fill:#bbb">4</text>
+          <text class="snum" x="120" y="8" style="fill:#bbb">5</text>
+          <text class="snum" x="144" y="8" style="fill:#bbb">6</text>
+          <text class="snum" x="168" y="8" style="fill:#bbb">7</text>
+          <text class="snum" x="192" y="8" style="fill:#bbb">8</text>
+        </g>
+        <!-- grilla 8x8 -->
+        <g id="grid"></g>
+        <!-- laterales -->
+        <g id="side"></g>
+        <script type="text/javascript"><![CDATA[
+          (function(){
+            var g=document.getElementById('grid'), s=document.getElementById('side'), ns='http://www.w3.org/2000/svg';
+            var fills=['#cfcfcf','#fbd9a3','#2fb43a','#e4221a'];
+            for(var r=0;r<8;r++){
+              for(var c=0;c<8;c++){
+                var x=24+c*24-9, y=42+r*24-9;
+                var rect=document.createElementNS(ns,'rect');
+                rect.setAttribute('class','pad'); rect.setAttribute('x',x); rect.setAttribute('y',y);
+                rect.setAttribute('width',18); rect.setAttribute('height',18);
+                var f='#cfcfcf';
+                if(r===0&&c===0)f='#fbd9a3'; if(r===0&&c===1)f='#2fb43a'; if(r===0&&c===2)f='#e4221a';
+                rect.setAttribute('fill',f); g.appendChild(rect);
+              }
+              var cy=42+r*24;
+              var circ=document.createElementNS(ns,'circle'); circ.setAttribute('class','btn');
+              circ.setAttribute('cx',218); circ.setAttribute('cy',cy); circ.setAttribute('r',7); circ.setAttribute('fill','#cfcfcf');
+              s.appendChild(circ);
+              var t=document.createElementNS(ns,'text'); t.setAttribute('class','num'); t.setAttribute('x',218); t.setAttribute('y',cy+1.6);
+              t.textContent=String(r+1); s.appendChild(t);
+            }
+            var cap=[['detenido',0],['sonando',1],['grabando',2]];
+            for(var i=0;i<3;i++){
+              var t2=document.createElementNS(ns,'text'); t2.setAttribute('class','lbl2'); t2.setAttribute('x',24+i*24); t2.setAttribute('y',57);
+              t2.setAttribute('style','fill:#ddd'); t2.textContent=cap[i][0]; g.appendChild(t2);
+            }
+            var t3=document.createElementNS(ns,'text'); t3.setAttribute('class','lbl2'); t3.setAttribute('x',218); t3.setAttribute('y',226);
+            t3.setAttribute('style','fill:#ddd'); t3.textContent='escenas'; s.appendChild(t3);
+            var t4=document.createElementNS(ns,'text'); t4.setAttribute('class','lbl2'); t4.setAttribute('x',108); t4.setAttribute('y',226);
+            t4.setAttribute('style','fill:#ddd'); t4.textContent='pistas 1 – 8  →   filas = escenas 1 – 8  ↓'; g.appendChild(t4);
+          })();
+        ]]></script>
+      </svg>
+
+      <div class="box" style="margin-top:3mm">
+        <h2>Colores de los pads</h2>
+        <ul style="columns:2; column-gap:4mm">
+          <li><span class="led off"></span>vacío</li>
+          <li><span class="led amber3"></span>clip detenido</li>
+          <li><span class="led green"></span>sonando</li>
+          <li><span class="led red"></span>grabando</li>
+          <li><span class="led half green" style="--b:#cfcfcf"></span>por sonar (al pulso)</li>
+          <li><span class="led half red" style="--b:#cfcfcf"></span>por grabar (al pulso)</li>
+          <li><span class="led half red" style="--b:#2fb43a"></span>grabando, cierra en el compás</li>
+          <li><span class="led half amber" style="--b:#2fb43a"></span>stop en el compás (sonaba)</li>
+          <li><span class="led half amber" style="--b:#e4221a"></span>stop en el compás (grababa)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Columna 2: botones superiores -->
+    <div class="col mid">
+      <h2>Botones superiores</h2>
+      <table>
+        <colgroup><col class="c1"><col class="c2"><col></colgroup>
+        <tr><th></th><th>Toque</th><th>Mantener</th></tr>
+        <tr><td class="n"><span class="led green"></span>1 UNDO<small>verde tenue: nada que deshacer · verde/lima: hay Redo</small></td><td>deshace</td><td>½ s: rehace</td></tr>
+        <tr><td class="n"><span class="led orange"></span>2 FIXED LENGTH<small>naranja parpadeando: prendido</small></td><td>prende / apaga el largo fijo</td><td>laterales 1–5 = <b>1 · 2 · 4 · 8 · 16</b> compases</td></tr>
+        <tr><td class="n"><span class="led yellow"></span>3 QUANTIZE</td><td>—</td><td>laterales 1–5 = <b>1/4 · 1/8 · 1/8t · 1/16 · 1/16t</b><br>laterales 7–8 = <b>50 % · 100 %</b><br>+ pad con clip: cuantiza ese clip</td></tr>
+        <tr><td class="n"><span class="led red"></span>4 DELETE</td><td>—</td><td>+ pad: borra el clip (o cancela la grabación)<br>+ lateral: borra la fila entera</td></tr>
+        <tr><td class="n"><span class="led amber"></span>5 STOP</td><td>—</td><td>+ pad: stop pista en el compás<br>+ clip parado: play en el compás<br>+ lateral: detiene las pistas que suenan en esa fila</td></tr>
+        <tr><td class="n"><span class="led mand"></span>6 COPY</td><td>—</td><td>tocar clip origen (parpadea), luego pads vacíos = copias</td></tr>
+        <tr><td class="n"><span class="led" style="background:linear-gradient(90deg,#e4221a,#f2d21f,#2fb43a)"></span>7 SNAPSHOT</td><td>toque corto: copia los clips que suenan a la fila libre más baja (SNAP)</td><td><b>bounce</b>: clips sonando (o ninguno = todos) + slot vacío de otra pista: graba la mezcla; al terminar suena y los originales paran<br><b>gain</b>: clip sonando + lateral (1 = +6 dB … 8 = −18 dB)</td></tr>
+        <tr><td class="n"><span class="led green"></span>8 PULSO / TAP<small>ámbar: metrónomo prendido</small></td><td>late al tempo · 4 toques seguidos fijan el tempo</td><td>½ s: metrónomo on / off</td></tr>
+      </table>
+
+      <div class="box warn" style="margin-top:3mm">
+        <b>INIT</b> · mantener <b>UNDO + FIXED LENGTH + QUANTIZE</b> más de ½ s: vacía los 64 slots (grilla parpadea roja mientras cuenta). Un UNDO lo recupera.<br>
+        <b>BOUNCE SETUP</b> · mantener <b>DELETE + STOP + COPY</b> más de ½ s: crea o toma el retorno BOUNCE (Sends Only). Una vez por set.
+      </div>
+    </div>
+
+    <!-- Columna 3: pads y laterales -->
+    <div class="col right">
+      <h2>Pads (sin modificador)</h2>
+      <ul>
+        <li><span class="led off"></span><b>vacío</b> → arma la pista y <b>graba</b> desde el próximo compás</li>
+        <li><span class="led amber3"></span><b>detenido</b> → lanza en el compás</li>
+        <li><span class="led green"></span><b>sonando</b> → se detiene <b>al instante</b></li>
+        <li><span class="led red"></span><b>grabando</b> → cierra en el compás y empieza a sonar; la pista se desarma sola</li>
+      </ul>
+      <p class="note">Con Fixed Length prendido la grabación cierra sola al largo elegido; el último compás alterna rojo / verde.</p>
+
+      <h2 style="margin-top:4mm">Laterales (escenas)</h2>
+      <ul>
+        <li>Toque: lanza la fila (escena de Live). Las pistas sin clip en la fila se callan.</li>
+        <li><span class="led off"></span>fila vacía · <span class="led amber3"></span>solo clips parados · <span class="led green"></span>algo sonando</li>
+        <li>Con un superior mantenido: valor o acción sobre la fila (ver tabla).</li>
+      </ul>
+
+      <h2 style="margin-top:4mm">Al cargar</h2>
+      <ul>
+        <li>Fixed Length <b>apagado, 1 compás</b></li>
+        <li>Quantize <b>1/16 al 100 %</b></li>
+        <li>Nada se guarda entre sesiones.</li>
+      </ul>
+
+      <h2 style="margin-top:4mm">Rechazos</h2>
+      <p class="note" style="margin-top:0">Parpadeo rojo breve del botón: copia sobre slot ocupado, snapshot con una pista grabando o sin fila libre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PÁGINA 2: TIRAS PARA PEGAR ======================= -->
+<section class="page">
+  <h1>Tiras para pegar sobre el Launchpad</h1>
+  <p class="sub">Imprimir a <b>escala 100 %</b> (sin "ajustar a la página"). Verificar con la regla de abajo: debe medir 10 cm. Recortar por la línea de puntos y pegar justo encima de la fila de botones superiores y a la derecha de los laterales.</p>
+
+  <div class="ruler"><span>0</span><span style="left:98mm">10 cm</span></div>
+
+  <p class="strip-title"><b>Launchpad / Launchpad S</b> (paso 24 mm) · fila superior</p>
+  <div class="strip full">
+    <div class="cell"><div class="name"><span class="led green"></span>UNDO</div><div class="hint">toque: <b>deshace</b><br>mantener ½ s: <b>rehace</b></div></div>
+    <div class="cell"><div class="name"><span class="led orange"></span>FIXED LEN</div><div class="hint">toque: <b>on / off</b><br>+ lateral 1–5: <b>compases</b></div></div>
+    <div class="cell"><div class="name"><span class="led yellow"></span>QUANTIZE</div><div class="hint">+ lat 1–5: <b>grilla</b> · 7–8: <b>%</b><br>+ pad: <b>aplica</b></div></div>
+    <div class="cell"><div class="name"><span class="led red"></span>DELETE</div><div class="hint">+ pad: <b>borra clip</b><br>+ lateral: <b>borra fila</b></div></div>
+    <div class="cell"><div class="name"><span class="led amber"></span>STOP</div><div class="hint">+ pad: <b>stop pista</b> · parado: <b>play</b><br>+ lateral: <b>stop fila</b> (compás)</div></div>
+    <div class="cell"><div class="name"><span class="led mand"></span>COPY</div><div class="hint">+ clip <b>origen</b><br>luego pads vacíos</div></div>
+    <div class="cell"><div class="name"><span class="led" style="background:linear-gradient(90deg,#e4221a,#f2d21f,#2fb43a)"></span>SNAPSHOT</div><div class="hint">toque: <b>foto</b> · + clips + vacío: <b>bounce</b><br>+ clip + lateral: <b>gain</b></div></div>
+    <div class="cell"><div class="name"><span class="led green"></span>PULSO / TAP</div><div class="hint">4 toques: <b>tempo</b><br>mantener ½ s: <b>metrónomo</b></div></div>
+  </div>
+
+  <p class="strip-title"><b>Launchpad Mini</b> (paso 19 mm) · fila superior</p>
+  <div class="strip mini">
+    <div class="cell"><div class="name"><span class="led green"></span>UNDO</div><div class="hint">toque: deshace<br>½ s: rehace</div></div>
+    <div class="cell"><div class="name"><span class="led orange"></span>FIXED L.</div><div class="hint">toque: on/off<br>+ lat 1–5: compases</div></div>
+    <div class="cell"><div class="name"><span class="led yellow"></span>QUANT.</div><div class="hint">+ lat: grilla / %<br>+ pad: aplica</div></div>
+    <div class="cell"><div class="name"><span class="led red"></span>DELETE</div><div class="hint">+ pad: clip<br>+ lat: fila</div></div>
+    <div class="cell"><div class="name"><span class="led amber"></span>STOP</div><div class="hint">+ pad: stop · play<br>+ lat: fila</div></div>
+    <div class="cell"><div class="name"><span class="led mand"></span>COPY</div><div class="hint">clip origen →<br>pads vacíos</div></div>
+    <div class="cell"><div class="name"><span class="led" style="background:linear-gradient(90deg,#e4221a,#f2d21f,#2fb43a)"></span>SNAP</div><div class="hint">toque: foto<br>+ clips + vacío: bounce</div></div>
+    <div class="cell"><div class="name"><span class="led green"></span>PULSO</div><div class="hint">4 toques: tempo<br>½ s: metrón.</div></div>
+  </div>
+
+  <div class="box" style="margin-top:6mm; width:150mm">
+    <h2>Gestos de un vistazo</h2>
+    <ul>
+      <li><b>Pad vacío</b> = graba · <b>pad detenido</b> = lanza · <b>pad sonando</b> = para ya · <b>pad grabando</b> = cierra</li>
+      <li><b>Lateral</b> = lanza la fila</li>
+      <li><b>Superior + pad / lateral</b> = acción del superior sobre ese clip o fila</li>
+      <li><b>UNDO + FIXED L. + QUANTIZE</b> ½ s = INIT (vacía todo)</li>
+      <li><b>DELETE + STOP + COPY</b> ½ s = prepara el retorno BOUNCE (una vez por set)</li>
+      <li><b>SNAPSHOT + clips sonando + slot vacío</b> = bounce (mezcla grabada); mientras graba, pad destino o SNAPSHOT cierran, DELETE + destino cancela</li>
+      <li><b>SNAPSHOT + clip sonando + lateral</b> = gain de ese clip (lateral 1 = +6 dB … 8 = −18 dB); el nivel actual se ve verde, el de 0 dB ámbar tenue</li>
+      <li>Si hay dos superiores abajo, vale el primero que bajó</li>
+    </ul>
+  </div>
+  <p class="note">Los pasos de 24 mm y 19 mm son aproximados. Si la tira no coincide con los botones, medir la distancia entre centros de dos botones vecinos y pedir la tira con ese paso.</p>
+</section>
+
+<!-- ======================= PÁGINA 3: TIRAS LATERALES ======================= -->
+<section class="page portrait">
+  <h1>Tiras laterales (escenas)</h1>
+  <p class="sub">Valores que muestran los laterales con <b>Fixed Length (FL)</b>, <b>Quantize (Q)</b> o <b>Snapshot + clip (G = gain)</b> mantenidos. Pegar a la derecha de los botones redondos. Izquierda: Launchpad / S (paso 24 mm). Derecha: Mini (paso 19 mm).</p>
+  <div style="display:flex; align-items:flex-start">
+    <div class="vstrip full">
+      <div class="cell"><div class="name">1</div><div class="hint">FL: <b>1</b> compás · Q: <b>1/4</b><br>G: <b>+6 dB</b></div></div>
+      <div class="cell"><div class="name">2</div><div class="hint">FL: <b>2</b> compases · Q: <b>1/8</b><br>G: <b>+3 dB</b></div></div>
+      <div class="cell"><div class="name">3</div><div class="hint">FL: <b>4</b> compases · Q: <b>1/8 t</b><br>G: <b>0 dB</b></div></div>
+      <div class="cell"><div class="name">4</div><div class="hint">FL: <b>8</b> compases · Q: <b>1/16</b><br>G: <b>−3 dB</b></div></div>
+      <div class="cell"><div class="name">5</div><div class="hint">FL: <b>16</b> compases · Q: <b>1/16 t</b><br>G: <b>−6 dB</b></div></div>
+      <div class="cell"><div class="name">6</div><div class="hint">G: <b>−12 dB</b></div></div>
+      <div class="cell"><div class="name">7</div><div class="hint">Q: <b>50 %</b><br>G: <b>−15 dB</b></div></div>
+      <div class="cell"><div class="name">8</div><div class="hint">Q: <b>100 %</b><br>G: <b>−18 dB</b></div></div>
+    </div>
+    <div class="vstrip mini">
+      <div class="cell"><div class="name">1</div><div class="hint">FL <b>1</b> · Q <b>1/4</b> · G <b>+6</b></div></div>
+      <div class="cell"><div class="name">2</div><div class="hint">FL <b>2</b> · Q <b>1/8</b> · G <b>+3</b></div></div>
+      <div class="cell"><div class="name">3</div><div class="hint">FL <b>4</b> · Q <b>1/8t</b> · G <b>0</b></div></div>
+      <div class="cell"><div class="name">4</div><div class="hint">FL <b>8</b> · Q <b>1/16</b> · G <b>−3</b></div></div>
+      <div class="cell"><div class="name">5</div><div class="hint">FL <b>16</b> · Q <b>1/16t</b> · G <b>−6</b></div></div>
+      <div class="cell"><div class="name">6</div><div class="hint">G <b>−12</b></div></div>
+      <div class="cell"><div class="name">7</div><div class="hint">Q <b>50 %</b> · G <b>−15</b></div></div>
+      <div class="cell"><div class="name">8</div><div class="hint">Q <b>100 %</b> · G <b>−18</b></div></div>
+    </div>
+    <div style="flex:1; padding-left:6mm">
+      <div class="box">
+        <h2>Cómo leerlas</h2>
+        <ul>
+          <li>Sin superior mantenido, el lateral lanza la escena de esa fila.</li>
+          <li>Con <b>FIXED LENGTH</b> mantenido: laterales 1–5 eligen el largo de grabación; el elegido se ve ámbar fuerte.</li>
+          <li>Con <b>QUANTIZE</b> mantenido: laterales 1–5 eligen la grilla, 7 y 8 la cantidad.</li>
+          <li>Con <b>DELETE</b>: borra la fila. Con <b>STOP</b>: detiene las pistas que suenan en la fila.</li>
+          <li>Con <b>SNAPSHOT</b> mantenido y un clip sonando tocado: el lateral fija el gain de ese clip (G). El nivel actual se ve verde y el de 0 dB ámbar tenue.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

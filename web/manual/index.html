@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launchpad95 Manual - Complete Reference Guide</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/launchpad.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="navbar-brand">Launchpad95 <span>Manual</span></a>
+            <ul class="navbar-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#modes">Modes</a></li>
+                <li><a href="#scales">Scales</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+            <button class="menu-toggle">&#9776;</button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="search-box">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" class="search-input" placeholder="Search manual...">
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Getting Started</div>
+            <ul class="sidebar-nav">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#hardware">Supported Hardware</a></li>
+                <li><a href="#debugging">Troubleshooting</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Modes</div>
+            <ul class="sidebar-nav">
+                <li><a href="#session-mode">Session Mode</a></li>
+                <li><a href="#pro-session-mode">Pro Session Mode</a></li>
+                <li><a href="#instrument-mode">Instrument Mode</a></li>
+                <li><a href="#device-mode">Device Controller</a></li>
+                <li><a href="#drum-sequencer">Drum Step Sequencer</a></li>
+                <li><a href="#melodic-sequencer">Melodic Sequencer</a></li>
+                <li><a href="#mixer-mode">Mixer Mode</a></li>
+                <li><a href="#user-modes">User Modes</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Reference</div>
+            <ul class="sidebar-nav">
+                <li><a href="#scales">Musical Scales</a></li>
+                <li><a href="#midi-channels">MIDI Channels</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Overview Section -->
+            <section id="overview">
+                <h1>Launchpad95 Complete Manual</h1>
+                <p>Launchpad95 is an advanced control surface script for Ableton Live that transforms your Novation Launchpad into a powerful music production tool with step sequencers, instrument control, and device parameter editing. This manual covers <strong>every feature</strong> of Launchpad95 in detail.</p>
+
+                <div class="card-grid">
+                    <div class="feature-card">
+                        <h4>Pro Session Mode</h4>
+                        <p>Advanced clip manipulation with 8 modifier buttons for copy, paste, delete, duplicate, quantize, record, and tempo control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Drum Step Sequencer</h4>
+                        <p>16/32-step pattern sequencer with 5-level velocity, mute system, quantization (1/4 to 1/32), and combined/multinote modes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Melodic Sequencer</h4>
+                        <p>7-note polyphonic sequencer with 4 editing pages: pitch, velocity (7 levels), length (7 values), and octave control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Instrument Mode</h4>
+                        <p>Scale-based playing with 34 musical scales, 6 layout modes, Quick Scale access, Note Repeat, and intelligent drum rack detection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Device Controller</h4>
+                        <p>Control any device parameter with 8 sliders, precision mode, parameter banks, and 4 device lock slots for instant recall.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Mixer Mode</h4>
+                        <p>Full mixing control with volume, pan, sends A/B, plus mute/solo/arm/stop for 8 tracks with 5 sub-modes.</p>
+                    </div>
+                </div>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>7 Operating Modes:</strong> Session, Pro Session, Instrument, Device Controller, Drum Sequencer, Melodic Sequencer, Mixer</li>
+                    <li><strong>34 Musical Scales:</strong> Western modes, pentatonics, blues, Japanese, Middle Eastern, and 8 new scales in v2.0</li>
+                    <li><strong>Full Ableton Integration:</strong> Clip launching, scene control, device parameters, transport</li>
+                    <li><strong>Hardware Support:</strong> Launchpad Original, Launchpad S, Launchpad Mini MK1 (legacy 3-color models only, no RGB)</li>
+                    <li><strong>Detailed Timing:</strong> Long press (500ms), double-click (250ms), very long press (2000ms) actions</li>
+                </ul>
+            </section>
+
+            <!-- Installation Section -->
+            <section id="installation">
+                <h2>Installation</h2>
+
+                <h3>Step 1: Download</h3>
+                <p>Download the latest Launchpad95.zip from the official source.</p>
+                <div class="alert alert-info">
+                    <strong>Important:</strong> If downloading from GitHub, rename the folder to remove "-master" suffix. The folder must be named exactly <code>Launchpad95</code>.
+                </div>
+
+                <h3>Step 2: Copy Files</h3>
+                <div class="card">
+                    <h4>Windows</h4>
+                    <pre><code>C:\ProgramData\Ableton\Live [version]\Resources\MIDI Remote Scripts\Launchpad95</code></pre>
+
+                    <h4>macOS</h4>
+                    <p>Right-click on Ableton Live in Applications, select "Show Package Contents", then navigate to:</p>
+                    <pre><code>Contents/App-Resources/MIDI Remote Scripts/Launchpad95</code></pre>
+                </div>
+
+                <h3>Step 3: Configure Ableton Live</h3>
+                <ol>
+                    <li>Open Ableton Live (or restart if already open)</li>
+                    <li>Go to <strong>Preferences</strong> &gt; <strong>Link, Tempo &amp; MIDI</strong></li>
+                    <li>Under <strong>Control Surface</strong>, select <code>Launchpad95</code></li>
+                    <li>Set <strong>Input</strong> to your Launchpad MIDI port</li>
+                    <li>Set <strong>Output</strong> to your Launchpad MIDI port</li>
+                    <li><strong>IMPORTANT:</strong> Enable <strong>Track</strong> for both Input and Output</li>
+                </ol>
+
+                <div class="alert alert-tip">
+                    <strong>Tip:</strong> "Track" must be enabled for MIDI input/output to get note feedback in Instrument mode and proper button lighting.
+                </div>
+
+                <h3>Step 4: Verify Installation</h3>
+                <p>If installation is successful:</p>
+                <ul>
+                    <li>Launchpad buttons should light up</li>
+                    <li>You should see "SESSION MODE" in Ableton's status bar</li>
+                    <li>Pressing mode buttons (Session, User1, User2, Mixer) should change modes</li>
+                </ul>
+
+                <h3>Optional: Max for Live Helper</h3>
+                <p>A <code>Launchpad95Helper.amxd</code> device is included in <code>M4LDevice/</code> folder. This provides an on-screen display (OSD) showing current mode and settings. <strong>Not required</strong> for the script to work.</p>
+            </section>
+
+            <!-- Troubleshooting and Debugging -->
+            <section id="debugging">
+                <h2>Troubleshooting &amp; Debugging</h2>
+
+                <h3>User Feedback System</h3>
+                <p>Launchpad95 provides feedback through <strong>Ableton's status bar</strong> (bottom of the screen). Messages appear when:</p>
+
+                <table>
+                    <thead><tr><th>Event</th><th>Message Example</th></tr></thead>
+                    <tbody>
+                        <tr><td>Mode change</td><td>"PRO SESSION MODE", "INSTRUMENT MODE", etc.</td></tr>
+                        <tr><td>Scale selection</td><td>"Selected Scale: C Major"</td></tr>
+                        <tr><td>Quantization change</td><td>"QUANTIZATION : 1/16"</td></tr>
+                        <tr><td>Device lock</td><td>" 'TrackName - DeviceName' STORED IN LOCK: 1"</td></tr>
+                        <tr><td>Device recall</td><td>"LOCKED TO 'TrackName - DeviceName (1)"</td></tr>
+                        <tr><td>Track arm/mute/solo</td><td>"track Drums armed"</td></tr>
+                        <tr><td>Clip lock</td><td>"stepseq : locked to clip 'Beat 1'"</td></tr>
+                        <tr><td>Note Repeat</td><td>"REPEATER Step: 1/16", "REPEATER Swing amount: 50%"</td></tr>
+                        <tr><td>Undo/Redo</td><td>"undo!", "redo!"</td></tr>
+                        <tr><td>Session Record (Pro Session)</td><td>"SESSION RECORD ON" / "SESSION RECORD OFF"</td></tr>
+                        <tr><td>Session Record (Instrument)</td><td>"session record : on" / "session record : off"</td></tr>
+                        <tr><td>AUTORECORD</td><td>"AUTORECORD ON/OFF"</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Enabling Debug Logs</h3>
+                <p>For developers or troubleshooting, you can enable detailed logging:</p>
+
+                <ol>
+                    <li>Open the Python file you want to debug (e.g., <code>MainSelectorComponent.py</code>)</li>
+                    <li>Find commented lines like: <code>#Live.Base.log("message")</code></li>
+                    <li>Remove the <code>#</code> to uncomment and enable logging</li>
+                    <li>Save the file and reload scripts in Ableton (Ctrl+Shift+R / Cmd+Shift+R)</li>
+                    <li>View logs in Ableton's Log.txt file</li>
+                </ol>
+
+                <h4>Log File Locations</h4>
+                <pre><code>Windows: C:\Users\[User]\AppData\Roaming\Ableton\Live [version]\Preferences\Log.txt
+macOS: ~/Library/Preferences/Ableton/Live [version]/Log.txt</code></pre>
+
+                <h3>Making Changes to the Script</h3>
+                <ol>
+                    <li>Edit the <code>.py</code> files in the Launchpad95 folder</li>
+                    <li>Save your changes</li>
+                    <li>In Ableton: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Win) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Mac) to reload scripts</li>
+                    <li>Or restart Ableton Live completely</li>
+                </ol>
+
+                <h4>Key Files for Modification</h4>
+                <table>
+                    <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>Settings.py</code></td><td>User configuration options</td></tr>
+                        <tr><td><code>Launchpad.py</code></td><td>Hardware initialization</td></tr>
+                        <tr><td><code>MainSelectorComponent.py</code></td><td>Mode switching logic</td></tr>
+                        <tr><td><code>SpecialProSessionComponent.py</code></td><td>Pro Session mode</td></tr>
+                        <tr><td><code>InstrumentControllerComponent.py</code></td><td>Instrument mode</td></tr>
+                        <tr><td><code>StepSequencerComponent.py</code></td><td>Drum Step Sequencer</td></tr>
+                        <tr><td><code>StepSequencerComponent2.py</code></td><td>Melodic Step Sequencer</td></tr>
+                        <tr><td><code>DeviceComponent.py</code></td><td>Device Controller</td></tr>
+                        <tr><td><code>ScaleComponent.py</code></td><td>Scale definitions</td></tr>
+                        <tr><td><code>consts.py</code></td><td>Constants and timing values</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Common Issues</h3>
+
+                <div class="card">
+                    <h4>Launchpad doesn't light up</h4>
+                    <ul>
+                        <li>Check that the folder is named exactly <code>Launchpad95</code></li>
+                        <li>Verify Input and Output are set to correct MIDI ports</li>
+                        <li>Try restarting Ableton Live</li>
+                        <li>Check for Python syntax errors in Log.txt</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Notes don't play in Instrument mode</h4>
+                    <ul>
+                        <li>Enable "Track" for both MIDI Input and Output in preferences</li>
+                        <li>Make sure a MIDI track is selected with an instrument</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Changes to script don't take effect</h4>
+                    <ul>
+                        <li>Use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> to reload scripts</li>
+                        <li>Or fully restart Ableton Live</li>
+                        <li>Check for Python errors in Log.txt</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Supported Hardware -->
+            <section id="hardware">
+                <h2>Supported Hardware</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Device</th>
+                            <th>Color Support</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Launchpad (Original)</td>
+                            <td><span class="badge badge-amber">3 colors</span></td>
+                            <td>Red, Green, Amber</td>
+                        </tr>
+                        <tr>
+                            <td>Launchpad S</td>
+                            <td><span class="badge badge-amber">3 colors</span></td>
+                            <td>Red, Green, Amber</td>
+                        </tr>
+                        <tr>
+                            <td>Launchpad Mini</td>
+                            <td><span class="badge badge-amber">3 colors</span></td>
+                            <td>Red, Green, Amber</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info">
+                    <strong>Note:</strong> For Launchpad Pro, please use the separate Launchpad Pro95 script.
+                </div>
+            </section>
+
+            <!-- Interactive Diagram Section -->
+            <section id="button-layout">
+                <h2>Button Layout</h2>
+                <p>Select a mode to see the button mappings:</p>
+
+                <div class="mode-selector">
+                    <button class="active" data-mode="session">Session</button>
+                    <button data-mode="prosession">Pro Session</button>
+                    <button data-mode="instrument">Instrument</button>
+                    <button data-mode="device">Device</button>
+                    <button data-mode="drumseq">Drum Seq</button>
+                    <button data-mode="melodicseq">Melodic Seq</button>
+                    <button data-mode="mixer">Mixer</button>
+                </div>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--primary-color);"></span>
+                    <span class="current-mode-name">Session Mode</span>
+                    <span class="current-channel" style="margin-left: auto; color: var(--text-secondary);">MIDI Channel: 0</span>
+                </div>
+
+                <div class="launchpad-container">
+                    <div class="launchpad">
+                        <div class="launchpad-grid">
+                            <!-- Top row buttons -->
+                            <div class="lp-btn top green" data-tooltip="Navigate scenes up">Up</div>
+                            <div class="lp-btn top green" data-tooltip="Navigate scenes down">Down</div>
+                            <div class="lp-btn top green" data-tooltip="Navigate tracks left">Left</div>
+                            <div class="lp-btn top green" data-tooltip="Navigate tracks right">Right</div>
+                            <div class="lp-btn top amber" data-tooltip="Session mode">Session</div>
+                            <div class="lp-btn top off" data-tooltip="User 1 mode">User 1</div>
+                            <div class="lp-btn top off" data-tooltip="User 2 mode">User 2</div>
+                            <div class="lp-btn top off" data-tooltip="Mixer mode">Mixer</div>
+                            <!-- Empty corner (above Scene buttons) -->
+                            <div class="lp-empty"></div>
+
+                            <!-- Row 1 -->
+                            <div class="lp-btn amber"></div>
+                            <div class="lp-btn green"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn amber"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 1">Sc 1</div>
+
+                            <!-- Row 2 -->
+                            <div class="lp-btn green"></div>
+                            <div class="lp-btn amber"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 2">Sc 2</div>
+
+                            <!-- Row 3 -->
+                            <div class="lp-btn red"></div>
+                            <div class="lp-btn amber"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 3">Sc 3</div>
+
+                            <!-- Row 4 -->
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn amber"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 4">Sc 4</div>
+
+                            <!-- Row 5 -->
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 5">Sc 5</div>
+
+                            <!-- Row 6 -->
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 6">Sc 6</div>
+
+                            <!-- Row 7 -->
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 7">Sc 7</div>
+
+                            <!-- Row 8 -->
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn off"></div>
+                            <div class="lp-btn side green" data-tooltip="Launch scene 8">Sc 8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="matrix-description" style="text-align: center; margin-top: 1rem;">Clip launch grid - 8x8 clips</p>
+
+                <div class="launchpad-legend">
+                    <div class="legend-item"><div class="legend-color green"></div> Active / Playing</div>
+                    <div class="legend-item"><div class="legend-color amber"></div> Stopped with content</div>
+                    <div class="legend-item"><div class="legend-color red"></div> Recording</div>
+                    <div class="legend-item"><div class="legend-color off"></div> Empty / Disabled</div>
+                </div>
+            </section>
+
+            <!-- Session Mode -->
+            <section id="session-mode">
+                <h2>Session Mode</h2>
+                <p>Session mode provides an 8x8 clip launcher grid for triggering clips and scenes in Ableton Live.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--amber);"></span>
+                    Press <kbd>Session</kbd> button to activate
+                </div>
+
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>8x8 Clip Grid:</strong> Launch clips with visual feedback</li>
+                    <li><strong>Scene Launch:</strong> Side buttons launch entire scenes</li>
+                    <li><strong>Navigation:</strong> Arrow buttons scroll the session view</li>
+                    <li><strong>Zoom Mode:</strong> Hold Session button to see overview</li>
+                </ul>
+
+                <h3>Color Coding</h3>
+                <table>
+                    <tr><td><span class="badge badge-green">Green</span></td><td>Clip playing</td></tr>
+                    <tr><td><span class="badge badge-amber">Amber</span></td><td>Clip stopped (has content)</td></tr>
+                    <tr><td><span class="badge badge-red">Red</span></td><td>Clip recording</td></tr>
+                    <tr><td>Off</td><td>Empty clip slot</td></tr>
+                </table>
+
+            </section>
+
+            <!-- Pro Session Mode -->
+            <section id="pro-session-mode">
+                <h2>Pro Session Mode</h2>
+                <p>Pro Session Mode is the most powerful mode in Launchpad95, providing advanced clip manipulation, recording controls, quantization, and scene management - all without touching your computer. This is the mode professional users spend most of their time in.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--green);"></span>
+                    Short press <kbd>Session</kbd> while in Session mode to activate
+                </div>
+
+                <div class="alert alert-tip">
+                    <strong>Key Concept:</strong> In Pro Session Mode, the 8 side buttons become "modifier" buttons. Hold a modifier and tap a clip to perform actions like delete, duplicate, quantize, etc. The system tracks button combinations via <code>_modifier_count</code> internally.
+                </div>
+
+                <h3>Timing Constants (Internal)</h3>
+                <table>
+                    <tr><td><strong>LONG_BUTTON_PRESS</strong></td><td>500ms</td><td>Threshold for long press actions in Pro Session &amp; Instrument modes (redo, mute, implicit arm)</td></tr>
+                    <tr><td><strong>DOUBLE_CLICK_TIME</strong></td><td>250ms</td><td>Double-click detection window (<code>SHORT_PRESS = 0.25</code> in Pro Session)</td></tr>
+                    <tr><td><strong>VERY_LONG_BUTTON_PRESS</strong></td><td>2000ms</td><td>Very long press (implicit arm toggle in Instrument mode)</td></tr>
+                </table>
+                <div class="alert alert-info">
+                    <strong>Note:</strong> The Step Sequencers (Drum &amp; Melodic) define their own <code>LONG_BUTTON_PRESS = 1.0</code> (1000ms), which is different from the 500ms used in Pro Session and Instrument modes.
+                </div>
+
+                <h3>Side Button Functions (Top to Bottom)</h3>
+
+                <div class="card">
+                    <h4>1. Undo / Redo (<code>_action_undo</code>)</h4>
+                    <table>
+                        <tr><td><strong>Short press</strong></td><td>Undo last action</td><td><code>song.undo()</code></td></tr>
+                        <tr><td><strong>Long press (>500ms)</strong></td><td>Redo</td><td><code>song.redo()</code></td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-amber">Amber</span> when can_undo is True, <span class="badge">Off</span> when nothing to undo</p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Shift / Select View (<code>_action_shift</code>)</h4>
+                    <table>
+                        <tr><td><strong>Hold + Tap clip</strong></td><td>Select clip in Live, toggle Detail View visibility</td></tr>
+                        <tr><td><strong>Double tap (within 250ms)</strong></td><td>Hide Detail View completely</td></tr>
+                        <tr><td><strong>Hold + Bottom row (columns 1-8)</strong></td><td>Set Launch Quantization</td></tr>
+                        <tr><td><strong>Combined with other modifiers</strong></td><td>Scene operations (see each button)</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-amber">Amber</span> always active</p>
+                    <p><em>Shift is the "master modifier" - it changes other buttons from clip to scene operations.</em></p>
+                </div>
+
+                <div class="card">
+                    <h4>3. Click / Copy-Paste / Metronome (<code>_action_click</code>)</h4>
+                    <table>
+                        <tr><td><strong>Hold + Tap clip (1st)</strong></td><td>Copy clip to internal clipboard</td></tr>
+                        <tr><td><strong>Hold + Tap slot (2nd)</strong></td><td>Paste clip from clipboard</td></tr>
+                        <tr><td><strong>Shift + Hold + Tap row</strong></td><td>Launch entire scene</td></tr>
+                        <tr><td><strong>Double tap</strong></td><td>Toggle Metronome ON/OFF</td></tr>
+                        <tr><td><strong>Hold + Bottom row cols 1-2</strong></td><td>Tap tempo (tap repeatedly to set BPM)</td></tr>
+                        <tr><td><strong>Hold + Bottom row cols 3-4</strong></td><td>Nudge tempo DOWN</td></tr>
+                        <tr><td><strong>Hold + Bottom row cols 5-6</strong></td><td>Nudge tempo UP</td></tr>
+                        <tr><td><strong>Hold + Bottom row col 7</strong></td><td>Decrease BPM by 1</td></tr>
+                        <tr><td><strong>Hold + Bottom row col 8</strong></td><td>Increase BPM by 1</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-green">Green</span> when metronome is ON, <span class="badge">Off</span> when metronome is OFF</p>
+                    <p><em>Internal clipboard stores clip reference via <code>_slot_copy_buffer</code></em></p>
+                </div>
+
+                <div class="card">
+                    <h4>4. Quantize (<code>_action_quantize</code>)</h4>
+                    <table>
+                        <tr><td><strong>Hold + Tap MIDI clip</strong></td><td>Quantize all notes in clip to current record quantization setting</td></tr>
+                        <tr><td><strong>Shift + Hold + Tap row</strong></td><td>Create new empty scene BELOW the tapped row</td></tr>
+                        <tr><td><strong>Double tap</strong></td><td>Toggle Record Quantization ON/OFF</td></tr>
+                        <tr><td><strong>Hold + Bottom row</strong></td><td>Set Record Quantization value (see table below)</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-green">Green</span> when record quantization is enabled, <span class="badge">Off</span> when disabled</p>
+
+                    <h5>Record Quantization Values (Bottom Row Columns 1-8)</h5>
+                    <table>
+                        <tr><th>Col</th><th>Value</th><th>Index</th></tr>
+                        <tr><td>1</td><td>1/4 note</td><td>0</td></tr>
+                        <tr><td>2</td><td>1/8 note</td><td>1</td></tr>
+                        <tr><td>3</td><td>1/8 triplet</td><td>2</td></tr>
+                        <tr><td>4</td><td>1/8 + triplet</td><td>3</td></tr>
+                        <tr><td>5</td><td>1/16 note</td><td>4</td></tr>
+                        <tr><td>6</td><td>1/16 triplet</td><td>5</td></tr>
+                        <tr><td>7</td><td>1/16 + triplet</td><td>6</td></tr>
+                        <tr><td>8</td><td>1/32 note</td><td>7</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>5. Double Loop / Fixed Length (<code>_action_double</code>)</h4>
+                    <table>
+                        <tr><td><strong>Hold + Tap MIDI clip</strong></td><td>Double the loop length (duplicates content into second half)</td></tr>
+                        <tr><td><strong>Shift + Hold + Tap row</strong></td><td>Capture and Insert Scene - captures all currently playing clips into a new scene</td></tr>
+                        <tr><td><strong>Double tap</strong></td><td>Toggle Fixed Length recording ON/OFF</td></tr>
+                        <tr><td><strong>Hold + Bottom row</strong></td><td>Set Fixed Length value (see table below)</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-green">Green</span> when fixed length is enabled, <span class="badge">Off</span> when disabled</p>
+
+                    <h5>Fixed Length Values (Bottom Row)</h5>
+                    <table>
+                        <tr><th>Col</th><th>Value</th><th>Beats</th></tr>
+                        <tr><td>1</td><td>1 beat</td><td>1</td></tr>
+                        <tr><td>2</td><td>2 beats</td><td>2</td></tr>
+                        <tr><td>3</td><td>1 bar</td><td>4</td></tr>
+                        <tr><td>4</td><td>2 bars</td><td>8</td></tr>
+                        <tr><td>5</td><td>4 bars</td><td>16</td></tr>
+                        <tr><td>6</td><td>8 bars</td><td>32</td></tr>
+                        <tr><td>7</td><td>16 bars</td><td>64</td></tr>
+                        <tr><td>8</td><td>32 bars</td><td>128</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>6. Delete / Mute (<code>_action_delete</code>)</h4>
+                    <table>
+                        <tr><td><strong>Hold + Tap clip</strong></td><td>Delete the clip permanently</td></tr>
+                        <tr><td><strong>Shift + Hold + Tap row</strong></td><td>Delete entire scene (all clips in that row)</td></tr>
+                        <tr><td><strong>Double tap</strong></td><td>Unmute ALL tracks (global unmute)</td></tr>
+                        <tr><td><strong>Hold + Bottom row (col N)</strong></td><td>Toggle Mute on track N</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-red">Red</span> always (destructive action indicator)</p>
+                    <p><em>Warning: Delete is permanent! Use Undo immediately if you make a mistake.</em></p>
+                </div>
+
+                <div class="card">
+                    <h4>7. Duplicate / Solo (<code>_action_duplicate</code>)</h4>
+                    <table>
+                        <tr><td><strong>Hold + Tap clip</strong></td><td>Duplicate clip to the next empty slot below</td></tr>
+                        <tr><td><strong>Shift + Hold + Tap row</strong></td><td>Duplicate entire scene (creates new scene with all clips)</td></tr>
+                        <tr><td><strong>Double tap</strong></td><td>Unsolo ALL tracks (global unsolo)</td></tr>
+                        <tr><td><strong>Hold + Bottom row (col N)</strong></td><td>Toggle Solo on track N</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-amber">Amber</span> always</p>
+                </div>
+
+                <div class="card">
+                    <h4>8. Record / Arm (<code>_action_rec</code>)</h4>
+                    <table>
+                        <tr><td><strong>Short press</strong></td><td>Toggle Session Record button ON/OFF</td></tr>
+                        <tr><td><strong>Shift + Press</strong></td><td>Toggle AUTORECORD mode ON/OFF (tracks arm automatically when selected)</td></tr>
+                        <tr><td><strong>Hold + Tap empty slot</strong></td><td>Arm track + trigger recording into that slot</td></tr>
+                        <tr><td><strong>Hold + Tap existing clip</strong></td><td>Arm track + start overdub recording into that clip</td></tr>
+                        <tr><td><strong>Hold + Bottom row (col N)</strong></td><td>Toggle Arm on track N</td></tr>
+                    </table>
+                    <p><strong>Color:</strong> <span class="badge badge-red">Red</span> when Session Record is ON, <span class="badge badge-red">Red (bright)</span> when AUTORECORD mode is ON</p>
+                </div>
+
+                <h3>Shift Button Combinations Summary</h3>
+                <p>The Shift button (side button 2) modifies other buttons to perform scene-level operations:</p>
+                <table>
+                    <thead><tr><th>Combination</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Shift + Tap clip</strong></td><td>Select clip and toggle Detail View</td></tr>
+                        <tr><td><strong>Shift + Click + Tap row</strong></td><td>Launch entire scene</td></tr>
+                        <tr><td><strong>Shift + Quantize + Tap row</strong></td><td>Create new empty scene below</td></tr>
+                        <tr><td><strong>Shift + Double + Tap row</strong></td><td>Capture and Insert Scene (captures all playing clips)</td></tr>
+                        <tr><td><strong>Shift + Delete + Tap row</strong></td><td>Delete entire scene</td></tr>
+                        <tr><td><strong>Shift + Duplicate + Tap row</strong></td><td>Duplicate entire scene</td></tr>
+                        <tr><td><strong>Shift + Record</strong></td><td>Toggle AUTORECORD mode (auto-arm on track selection)</td></tr>
+                        <tr><td><strong>Shift + Bottom row</strong></td><td>Set Launch Quantization</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Launch Quantization (Shift + Bottom Row)</h3>
+                <p>Controls when clips start playing after being triggered. This is separate from record quantization.</p>
+
+                <table>
+                    <thead><tr><th>Col</th><th>Value</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>8 Bars</td><td>Clip starts on next 8-bar boundary</td></tr>
+                        <tr><td>2</td><td>4 Bars</td><td>Clip starts on next 4-bar boundary</td></tr>
+                        <tr><td>3</td><td>2 Bars</td><td>Clip starts on next 2-bar boundary</td></tr>
+                        <tr><td>4</td><td>1 Bar</td><td>Clip starts on next bar</td></tr>
+                        <tr><td>5</td><td>1/2 note</td><td>Clip starts on next half note</td></tr>
+                        <tr><td>6</td><td>1/2 triplet</td><td>Clip starts on next half-note triplet</td></tr>
+                        <tr><td>7</td><td>1/4 note</td><td>Clip starts on next quarter note</td></tr>
+                        <tr><td>8</td><td>1/4 triplet</td><td>Clip starts on next quarter-note triplet</td></tr>
+                    </tbody>
+                </table>
+                <p><em>Additional values (1/8, 1/8t, 1/16, 1/16t, 1/32, None) available via Ableton's GUI.</em></p>
+
+                <h3>Workflow Examples</h3>
+
+                <div class="card">
+                    <h4>Quick Recording Workflow</h4>
+                    <ol>
+                        <li>Double-tap <strong>Double</strong> button to enable Fixed Length</li>
+                        <li>Hold <strong>Double</strong> + tap column 5 to set 4 bars</li>
+                        <li>Hold <strong>Record</strong> + tap empty slot to arm and start recording</li>
+                        <li>Recording automatically stops after 4 bars</li>
+                        <li>Hold <strong>Quantize</strong> + tap the new clip to quantize it</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Copy/Paste Clips Between Tracks</h4>
+                    <ol>
+                        <li>Hold <strong>Click</strong> + tap source clip (copies to clipboard)</li>
+                        <li>Navigate to destination track using arrow buttons</li>
+                        <li>Hold <strong>Click</strong> + tap empty destination slot</li>
+                        <li>Clip is pasted (clipboard remains until you copy another)</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Building Arrangements with Scenes</h4>
+                    <ol>
+                        <li>Record clips across multiple tracks</li>
+                        <li>Hold <strong>Shift + Click</strong> + tap row to launch all clips as scene</li>
+                        <li>Hold <strong>Shift + Double</strong> + tap to capture current playing state as new scene</li>
+                        <li>Use <strong>Shift + Duplicate</strong> + tap to duplicate scene for variations</li>
+                        <li>Use <strong>Shift + Quantize</strong> + tap to create empty scene for breakdowns</li>
+                        <li>Use <strong>Shift + Delete</strong> + tap to remove unwanted scenes</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Live Performance Mixing</h4>
+                    <ol>
+                        <li>Hold <strong>Delete</strong> + tap bottom row columns to mute/unmute tracks</li>
+                        <li>Hold <strong>Duplicate</strong> + tap bottom row columns to solo tracks</li>
+                        <li>Double-tap <strong>Delete</strong> to unmute all tracks instantly</li>
+                        <li>Double-tap <strong>Duplicate</strong> to unsolo all tracks instantly</li>
+                        <li>Hold <strong>Click</strong> + tap bottom row to control tempo</li>
+                    </ol>
+                </div>
+
+                <h3>Pro Session Color Reference</h3>
+                <table>
+                    <thead><tr><th>Color</th><th>State</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-green">Green (bright)</span></td><td>Playing</td><td>Clip is currently playing</td></tr>
+                        <tr><td><span class="badge badge-green">Green (pulsing)</span></td><td>Triggered</td><td>Clip triggered, waiting for launch quantization</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (bright)</span></td><td>Stopped</td><td>Clip has content but is stopped</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (pulsing)</span></td><td>Triggered stop</td><td>Clip will stop at next quantize point</td></tr>
+                        <tr><td><span class="badge badge-red">Red (bright)</span></td><td>Recording</td><td>Clip is actively recording</td></tr>
+                        <tr><td><span class="badge badge-red">Red (pulsing)</span></td><td>Triggered record</td><td>Recording will start at next quantize point</td></tr>
+                        <tr><td>Off</td><td>Empty</td><td>No clip in this slot</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>AUTORECORD Mode</h3>
+                <p>AUTORECORD is a special mode that automatically arms tracks when you select them, eliminating the need to manually arm before recording.</p>
+
+                <div class="card">
+                    <h4>How to Enable/Disable</h4>
+                    <p><strong>Shift + Record</strong> (hold Shift, then press Record button)</p>
+                    <p>Display shows: "AUTORECORD ON" or "AUTORECORD OFF"</p>
+                </div>
+
+                <div class="card">
+                    <h4>Behavior</h4>
+                    <table>
+                        <tr><td><strong>AUTORECORD OFF (default)</strong></td><td>Select track → Must press Arm → Then can record</td></tr>
+                        <tr><td><strong>AUTORECORD ON</strong></td><td>Select track → Track arms automatically → Ready to record immediately</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>Use Cases</h4>
+                    <ul>
+                        <li><strong>Jam sessions:</strong> Switch between instruments and record instantly</li>
+                        <li><strong>Live composition:</strong> Quickly capture ideas without extra button presses</li>
+                        <li><strong>Performance recording:</strong> Move between tracks seamlessly while recording</li>
+                    </ul>
+                </div>
+
+                <h3>Internal Implementation Details</h3>
+                <p>For developers modifying the script:</p>
+                <ul>
+                    <li><strong>File:</strong> <code>SessionZoomComponent.py</code> (handles zoom/overview)</li>
+                    <li><strong>File:</strong> <code>SpecialProSessionComponent.py</code> (handles Pro Session clip operations)</li>
+                    <li><strong>Modifier tracking:</strong> <code>_modifier_count</code> tracks which modifiers are held</li>
+                    <li><strong>Clipboard:</strong> <code>_slot_copy_buffer</code> stores copied clip reference</li>
+                    <li><strong>Double-click detection:</strong> Uses <code>_last_press_time</code> with 250ms threshold</li>
+                    <li><strong>AUTORECORD flag:</strong> <code>_record_mode_on</code> tracks auto-arm state</li>
+                </ul>
+            </section>
+
+            <!-- Instrument Mode -->
+            <section id="instrument-mode">
+                <h2>Instrument Mode</h2>
+                <p>Instrument mode transforms the Launchpad into a powerful scale-based MIDI keyboard with support for 34 musical scales, 6 different layouts, and intelligent drum rack detection.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--amber);"></span>
+                    Press <kbd>User 1</kbd> button to activate
+                </div>
+
+                <h3>Side Buttons (Complete Reference)</h3>
+                <div class="side-buttons-list">
+                    <div class="side-button-item">
+                        <div class="btn-num">1</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Scale</div>
+                            <div class="btn-desc">
+                                <strong>Press (Melodic):</strong> Enter Scale Selection mode<br>
+                                <strong>Press (Drum Rack):</strong> Toggle Note Repeat Selector<br>
+                                <strong>In Scale mode:</strong> Access Quick Scale (3 sub-modes) via button (7,0)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">2</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Undo</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Undo last action<br>
+                                <strong>Long press (>500ms):</strong> Redo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">3</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Octave Up</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Shift playing range up one octave<br>
+                                Range: -2 to +10 (melodic) or 0 to 8 (drum rack)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">4</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Octave Down</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Shift playing range down one octave<br>
+                                Display shows current octave briefly
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">5</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Stop</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Stop the current clip<br>
+                                <strong>Long press (>500ms):</strong> Delete the current clip
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">6</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Play</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Fire/launch the selected clip slot
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">7</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Solo</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Toggle Solo on current track<br>
+                                <strong>Long press (>500ms):</strong> Toggle Mute on current track
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">8</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Record</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Toggle Session Record<br>
+                                <strong>Long press (>500ms):</strong> Toggle Metronome<br>
+                                <strong>Very long press (>2000ms):</strong> Toggle Implicit Arm mode
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>6 Layout Modes</h3>
+                <p>Instrument mode supports 6 different note layouts, selectable from the Scale Selection screen:</p>
+
+                <div class="card">
+                    <h4>1. Chromatic (<code>CHROMATIC</code>)</h4>
+                    <p>All 12 notes in chromatic order. Each row shifts by the "row interval" setting (default 5 = perfect 4th).</p>
+                    <ul>
+                        <li>All notes playable regardless of scale</li>
+                        <li>Scale notes highlighted, out-of-scale notes dimmed</li>
+                        <li>Good for: Jazz, chromatic runs, exploring outside the scale</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>2. Chromatic Guitar (<code>CHROMATIC_GTR</code>)</h4>
+                    <p>Chromatic layout with guitar-like tuning (rows shift by 5 semitones = perfect 4th, except one row shifted by 4 = major 3rd).</p>
+                    <ul>
+                        <li>Mimics standard guitar tuning intervals</li>
+                        <li>Familiar for guitarists transitioning to Launchpad</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>3. Diatonic (<code>DIATONIC</code>)</h4>
+                    <p>Only scale notes are shown. Each row shifts by a configurable interval within the scale (default 3 = thirds).</p>
+                    <ul>
+                        <li>No "wrong" notes - every pad is in the scale</li>
+                        <li>Vertical movement creates chord voicings</li>
+                        <li>Recommended for beginners and live performance</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>4. Diatonic No Stagger (<code>DIATONIC_NS</code>)</h4>
+                    <p>Diatonic notes in strict horizontal rows without staggering. Each row is the same scale starting from different octaves.</p>
+                    <ul>
+                        <li>Simple left-to-right scale runs</li>
+                        <li>Each row is a complete octave of the scale</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>5. Diatonic Chords (<code>DIATONIC_CHORDS</code>)</h4>
+                    <p>Optimized for chord playing. Vertical columns form chord voicings.</p>
+                    <ul>
+                        <li>Press multiple pads in a column for instant chords</li>
+                        <li>Row intervals optimized for chord shapes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>6. Drum Rack (<code>DRUMRACK</code>)</h4>
+                    <p>Automatically activated when selected track has a Drum Rack device. 4x4 drum pad layout matching Ableton's drum rack view.</p>
+                    <ul>
+                        <li>Mirrors the 16-pad Drum Rack layout</li>
+                        <li>Octave buttons shift through drum rack banks (4 pads per octave shift)</li>
+                        <li>Automatic detection: switches to drum rack layout when you select a drum rack track</li>
+                    </ul>
+                </div>
+
+                <h3>Scale Selection Mode</h3>
+                <p>Press the <strong>Scale button</strong> (side button 1) to enter the full scale selection interface:</p>
+
+                <table>
+                    <thead><tr><th>Row</th><th>Function</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Layout Mode</td><td>Select from 6 layouts (Chromatic, Chromatic GTR, Diatonic, Diatonic NS, Diatonic Chords, Drum Rack)</td></tr>
+                        <tr><td>2-3</td><td>Root Note</td><td>12 notes: C, C#, D, D#, E, F, F#, G, G#, A, A#, B (Circle of Fifths navigation)</td></tr>
+                        <tr><td>4</td><td>Octave</td><td>8 octave positions (-2 to 5 for melodic, 0-7 for drum rack)</td></tr>
+                        <tr><td>5-8</td><td>Scale Selection</td><td>34 scales displayed in a 4x8 grid (see Scales Reference)</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Quick Scale Mode (3 Sub-modes)</h3>
+                <p>Press button at position (7,0) in scale selection OR access via the mode button. Quick Scale uses only the first 2 rows of the grid, leaving rows 2-7 for playing.</p>
+
+                <div class="card">
+                    <h4>Sub-mode 0: Root Note Selection</h4>
+                    <p>Select the root note of your scale:</p>
+                    <table>
+                        <tr><td><strong>Row 0, Cols 0-5</strong></td><td>Root notes: C, C#, D, D#, E, F</td></tr>
+                        <tr><td><strong>Row 0, Col 6</strong></td><td>Circle of Fifths LEFT (transpose down)</td></tr>
+                        <tr><td><strong>Row 0, Col 7</strong></td><td>Switch to Modes sub-mode</td></tr>
+                        <tr><td><strong>Row 1, Cols 0-5</strong></td><td>Root notes: F#, G, G#, A, A#, B</td></tr>
+                        <tr><td><strong>Row 1, Col 7</strong></td><td>Circle of Fifths RIGHT (transpose up)</td></tr>
+                        <tr><td><strong>Tap selected root again</strong></td><td>Toggle Major ↔ Minor</td></tr>
+                    </table>
+                    <p><strong>Colors:</strong> <span class="badge badge-green">Green</span> = Major key, <span class="badge badge-amber">Amber</span> = Minor key</p>
+                </div>
+
+                <div class="card">
+                    <h4>Sub-mode 1: Scale/Mode Selection</h4>
+                    <p>Select from 15 most-used scales:</p>
+                    <table>
+                        <tr><td><strong>Row 0, Cols 0-6</strong></td><td>Major, Minor, Dorian, Mixolydian, Lydian, Phrygian, Locrian</td></tr>
+                        <tr><td><strong>Row 0, Col 7</strong></td><td>Switch back to Root sub-mode</td></tr>
+                        <tr><td><strong>Row 1, Cols 0-7</strong></td><td>Diminished, Minor Blues, Minor Pent, Major Pent, Harmonic Min, Melodic Min, Gypsy, Spanish</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>Sub-mode 2: Note Repeater (Arpeggiator)</h4>
+                    <p>Configure the Note Repeat function:</p>
+                    <table>
+                        <tr><td><strong>Row 0, Col 0</strong></td><td>Swing amount decrease</td></tr>
+                        <tr><td><strong>Row 0, Col 1</strong></td><td>Swing amount increase</td></tr>
+                        <tr><td><strong>Row 0, Col 2</strong></td><td>Quantization: Straight</td></tr>
+                        <tr><td><strong>Row 0, Col 3</strong></td><td>Quantization: Swing</td></tr>
+                        <tr><td><strong>Row 0, Col 4</strong></td><td>Quantization: Dotted</td></tr>
+                        <tr><td><strong>Row 0, Col 5</strong></td><td>Quantization: Flam</td></tr>
+                        <tr><td><strong>Row 0, Col 6</strong></td><td>Note Repeater ON/OFF toggle</td></tr>
+                        <tr><td><strong>Row 0, Col 7</strong></td><td>Switch to next sub-mode</td></tr>
+                        <tr><td><strong>Row 1, Cols 0-7</strong></td><td>Note Repeat step selection (8 options, even=normal, odd=triplet)</td></tr>
+                    </table>
+                    <p><strong>Swing values:</strong> 0% (straight), 25%, 50%, 75%, adjustable in 2.5% increments</p>
+                </div>
+
+                <h3>Note Repeat (Arpeggiator)</h3>
+                <p>Note Repeat automatically retriggers held notes at a specified rate. Access via Quick Scale Sub-mode 2 or with arrow buttons while playing.</p>
+
+                <h4>Quick Controls (while playing)</h4>
+                <table>
+                    <thead><tr><th>Button Combination</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr><td>Hold note + Up</td><td>Increase repeat rate (faster)</td></tr>
+                        <tr><td>Hold note + Down</td><td>Decrease repeat rate (slower)</td></tr>
+                        <tr><td>Hold note + Left</td><td>Decrease swing amount</td></tr>
+                        <tr><td>Hold note + Right</td><td>Increase swing amount</td></tr>
+                    </tbody>
+                </table>
+
+                <h4>Note Repeat Rate Values (8 options)</h4>
+                <pre><code>1/4, 1/4t (triplet), 1/8, 1/8t, 1/16, 1/16t, 1/32, 1/32t</code></pre>
+
+                <h4>Swing Values</h4>
+                <table>
+                    <tr><td><strong>0%</strong></td><td>Straight timing (no swing)</td></tr>
+                    <tr><td><strong>25%</strong></td><td>Light swing</td></tr>
+                    <tr><td><strong>50%</strong></td><td>Medium swing</td></tr>
+                    <tr><td><strong>75%</strong></td><td>Heavy swing</td></tr>
+                </table>
+                <p>Adjustable in 2.5% increments via Quick Scale controls.</p>
+
+                <h4>Quantization Types</h4>
+                <table>
+                    <tr><td><strong>Straight</strong></td><td>Normal note divisions</td></tr>
+                    <tr><td><strong>Swing</strong></td><td>Apply swing to divisions</td></tr>
+                    <tr><td><strong>Dotted</strong></td><td>Dotted note values (1.5x length)</td></tr>
+                    <tr><td><strong>Flam</strong></td><td>Quick double-hit effect</td></tr>
+                </table>
+
+                <div class="alert alert-tip">
+                    <strong>Drum Rack Only:</strong> Note Repeat Selector (accessed via Scale button in Drum Rack mode) provides dedicated controls in the top-right 4x4 area of the grid.
+                </div>
+
+                <h3>Note Colors (Chromatic/Diatonic Layouts)</h3>
+                <table>
+                    <thead><tr><th>Color</th><th>Note Type</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-amber">Amber (bright)</span></td><td>Root Note</td><td>The tonic/root of the current scale (e.g., C in C Major)</td></tr>
+                        <tr><td><span class="badge badge-green">Green (bright)</span></td><td>3rd and 5th</td><td>The major chord tones - 3rd and 5th intervals</td></tr>
+                        <tr><td><span class="badge badge-green">Green (dim)</span></td><td>Other Scale Notes</td><td>2nd, 4th, 6th, 7th - other notes in the scale</td></tr>
+                        <tr><td>Off</td><td>Out of Scale</td><td>Notes not in the current scale (chromatic modes only)</td></tr>
+                        <tr><td><span class="badge badge-red">Red (flash)</span></td><td>Playing</td><td>Note currently being played (feedback)</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Note Colors (Drum Rack Layout)</h3>
+                <table>
+                    <thead><tr><th>Color</th><th>Pad Type</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-amber">Amber</span></td><td>Has Sample</td><td>Drum pad contains a sample or device</td></tr>
+                        <tr><td><span class="badge">Off</span></td><td>Empty Pad</td><td>No sample loaded in this pad</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Implicit Arm Mode</h3>
+                <p>When enabled via <strong>very long press (>2s)</strong> on the Record button:</p>
+                <ul>
+                    <li>Track automatically arms when selected in Instrument mode</li>
+                    <li>Allows immediate recording without manually arming</li>
+                    <li>Indicated by Record button staying lit when track is armed</li>
+                </ul>
+
+                <h3>Scale Persistence Settings</h3>
+                <p>In <code>Settings.py</code>, configure how scales are saved:</p>
+                <table>
+                    <tr><td><code>INSTRUMENT__SAVE_SCALE = None</code></td><td>Scale not saved (default)</td></tr>
+                    <tr><td><code>INSTRUMENT__SAVE_SCALE = "clip"</code></td><td>Scale saved in clip name</td></tr>
+                    <tr><td><code>INSTRUMENT__SAVE_SCALE = "track"</code></td><td>Scale saved per track</td></tr>
+                </table>
+            </section>
+
+            <!-- Device Controller -->
+            <section id="device-mode">
+                <h2>Device Controller Mode</h2>
+                <p>Control any device's parameters using 8 vertical sliders with precision mode, parameter banks, and 4 device lock slots for quick recall. Works with any Ableton device, VST, or AU plugin.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--green);"></span>
+                    Press <kbd>User 1</kbd> twice to activate
+                </div>
+
+                <h3>Grid Layout</h3>
+                <table>
+                    <thead><tr><th>Area</th><th>Function</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Columns 1-8</strong></td><td>8 parameter sliders (one per column)</td></tr>
+                        <tr><td><strong>Rows 1-8</strong></td><td>8 value levels per parameter (row 1 = max, row 8 = min)</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Navigation (Top Buttons)</h3>
+                <table>
+                    <thead><tr><th>Button</th><th>Function</th><th>Color</th></tr></thead>
+                    <tbody>
+                        <tr><td><kbd>Up</kbd></td><td>Next device in chain</td><td><span class="badge badge-red">Red</span></td></tr>
+                        <tr><td><kbd>Down</kbd></td><td>Previous device in chain</td><td><span class="badge badge-red">Red</span></td></tr>
+                        <tr><td><kbd>Left</kbd></td><td>Previous track</td><td><span class="badge badge-red">Red</span></td></tr>
+                        <tr><td><kbd>Right</kbd></td><td>Next track</td><td><span class="badge badge-red">Red</span></td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Side Buttons (Complete Reference)</h3>
+
+                <div class="side-buttons-list">
+                    <div class="side-button-item">
+                        <div class="btn-num">1</div>
+                        <div class="btn-info">
+                            <div class="btn-label">On/Off</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Toggle the current device on/off<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> when device is ON, <span class="badge">Off</span> when device is bypassed
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">2</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Bank+</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Navigate to next parameter bank (8 params per bank)<br>
+                                <strong>Note:</strong> Devices with more than 8 parameters have multiple banks<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> if more banks available
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">3</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Bank-</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Navigate to previous parameter bank<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> if previous banks available
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">4</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Precision</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Toggle Precision mode on/off<br>
+                                <strong>Precision ON:</strong> Finer control increments, slower but more accurate<br>
+                                <strong>Precision OFF:</strong> Normal 8-step resolution<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> when precision mode is ON
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">5</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Lock 1</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Recall device stored in slot 1<br>
+                                <strong>Long press (>400ms):</strong> Store current device in slot 1, or clear if same device<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> if slot has device, <span class="badge badge-green">Green</span> if current device matches
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">6</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Lock 2</div>
+                            <div class="btn-desc">Device lock slot 2 (same behavior as Lock 1)</div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">7</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Lock 3</div>
+                            <div class="btn-desc">Device lock slot 3 (same behavior as Lock 1)</div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">8</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Lock 4</div>
+                            <div class="btn-desc">Device lock slot 4 (same behavior as Lock 1)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Parameter Types and Colors</h3>
+                <p>Different parameter types display different colors to indicate their behavior:</p>
+
+                <table>
+                    <thead><tr><th>Color</th><th>Parameter Type</th><th>Behavior</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-green">Green</span></td><td>Continuous</td><td>Smooth values (volume, cutoff, etc.) - tap row to set value</td></tr>
+                        <tr><td><span class="badge badge-red">Red</span></td><td>On/Off Toggle</td><td>Binary switch - tap anywhere to toggle</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber</span></td><td>List/Enum</td><td>Discrete options (waveform type, mode, etc.) - tap to cycle</td></tr>
+                        <tr><td><span class="badge">Off</span></td><td>No Parameter</td><td>Column has no assigned parameter</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Device Lock System</h3>
+                <p>Device locks allow you to "bookmark" up to 4 devices for instant recall, even when navigating to different tracks:</p>
+
+                <ol>
+                    <li><strong>To store a device:</strong> Navigate to the device, long-press Lock button (>400ms)</li>
+                    <li><strong>To recall a device:</strong> Short-press the Lock button with stored device</li>
+                    <li><strong>To clear a lock:</strong> Navigate to the stored device, long-press the same Lock button</li>
+                </ol>
+
+                <pre><code>NUM_DEVICE_LOCKS = 4
+DEVICE_LOCK_LONG_PRESS = 0.4  # seconds</code></pre>
+
+                <div class="alert alert-tip">
+                    <strong>Pro Tip:</strong> Store your master EQ in Lock 1, compressor in Lock 2, synth in Lock 3, and effects in Lock 4 for instant access during performance.
+                </div>
+
+                <h3>Precision Mode</h3>
+                <p>When Precision mode is enabled:</p>
+                <ul>
+                    <li>Each tap adjusts the parameter by a smaller increment</li>
+                    <li>Allows values between the 8 standard grid positions</li>
+                    <li>Essential for fine-tuning filter cutoffs, delays, etc.</li>
+                    <li>Visual feedback shows current value with lit row</li>
+                </ul>
+
+                <h3>Workflow Examples</h3>
+
+                <div class="card">
+                    <h4>Quick Device Mixing</h4>
+                    <ol>
+                        <li>Navigate to your synth track</li>
+                        <li>Enter Device Controller mode (User 1 x2)</li>
+                        <li>Adjust filter cutoff (typically column 3-4)</li>
+                        <li>Use Bank+ to access more parameters</li>
+                        <li>Store device in Lock 1 for quick recall</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Live Performance Device Control</h4>
+                    <ol>
+                        <li>Before performance, store key devices in Lock 1-4</li>
+                        <li>During performance, tap Lock buttons to jump between devices</li>
+                        <li>Use Precision mode for smooth filter sweeps</li>
+                        <li>Toggle device On/Off for effect drops</li>
+                    </ol>
+                </div>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li><strong>File:</strong> <code>DeviceComponent.py</code></li>
+                    <li><strong>MIDI Channel:</strong> 3</li>
+                    <li><strong>Parameters per bank:</strong> 8</li>
+                    <li><strong>Value resolution:</strong> 8 levels (normal) or fine (precision)</li>
+                </ul>
+            </section>
+
+            <!-- Drum Step Sequencer -->
+            <section id="drum-sequencer">
+                <h2>Drum Step Sequencer</h2>
+                <p>A powerful 16/32-step pattern sequencer optimized for drums and monophonic sequences, with velocity control, mute system, and multiple editing modes.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--amber);"></span>
+                    Press <kbd>User 2</kbd> to activate
+                </div>
+
+                <h3>Operating Modes</h3>
+                <p>The Drum Step Sequencer has 3 distinct operating modes, controlled by the Mode button (side button 4):</p>
+
+                <div class="card">
+                    <h4>Mode 1: Combined Mode (Default)</h4>
+                    <p><code>_mode = STEPSEQ_MODE_NORMAL</code></p>
+                    <table>
+                        <tr><td><strong>Rows 1-4 (top half)</strong></td><td>Note Editor: 8 steps × 4 notes visible</td></tr>
+                        <tr><td><strong>Rows 5-8, Cols 1-4 (bottom-left)</strong></td><td>Note/Drum Pad Selector: Select which 4 notes to edit</td></tr>
+                        <tr><td><strong>Rows 5-8, Cols 5-8 (bottom-right)</strong></td><td>Loop Selector: Select which 8-step page to edit</td></tr>
+                    </table>
+                    <p><em>Best for: Quick pattern creation with note and loop selection visible</em></p>
+                </div>
+
+                <div class="card">
+                    <h4>Mode 2: Multinote Mode</h4>
+                    <p><code>_mode = STEPSEQ_MODE_MULTINOTE</code></p>
+                    <table>
+                        <tr><td><strong>Full 8x8 Grid</strong></td><td>8 steps × 8 notes: Edit 8 different notes simultaneously</td></tr>
+                        <tr><td><strong>Bottom Row (Row 8)</strong></td><td>Loop/Page selector: Navigate through the clip</td></tr>
+                    </table>
+                    <p><em>Best for: Complex drum patterns with many elements, layering multiple drums per step</em></p>
+                </div>
+
+                <div class="card">
+                    <h4>Mode 3: Scale Edit Mode</h4>
+                    <p><code>_mode = STEPSEQ_MODE_SCALE_EDIT</code></p>
+                    <p>Accessed by pressing the Scale button. Full-screen scale/root note selector overlay.</p>
+                    <table>
+                        <tr><td><strong>Rows 1-2</strong></td><td>Root note selection (12 notes)</td></tr>
+                        <tr><td><strong>Rows 3-8</strong></td><td>Scale selection grid</td></tr>
+                    </table>
+                    <p><em>Press Scale button again to exit</em></p>
+                </div>
+
+                <h3>Side Buttons (Complete Reference)</h3>
+
+                <div class="side-buttons-list">
+                    <div class="side-button-item">
+                        <div class="btn-num">1</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Scale (<code>_on_scale_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Enter Scale Edit overlay (full-screen scale selector)<br>
+                                <strong>Press again:</strong> Exit Scale Edit, return to normal mode<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> when in scale edit mode
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">2</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Lock (<code>_on_lock_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Toggle lock on/off<br>
+                                <strong>Long press (>1000ms):</strong> Toggle between Clip-Lock and Track-Lock modes<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red (bright)</span> = Clip-Lock, <span class="badge badge-red">Red (dim)</span> = Track-Lock, <span class="badge">Off</span> = Unlocked
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">3</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Quantize (<code>_on_quantize_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Cycle through quantization values (1/4 → 1/8 → 1/16 → 1/32)<br>
+                                <strong>Long press (>1000ms):</strong> <strong>DUPLICATE CLIP</strong> to scene below<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> - color intensity indicates quantization level
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">4</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Mode (<code>_on_mode_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Cycle: Combined → Multinote (1 line) → Multinote (2 lines) → Combined<br>
+                                <strong>Long press (>1000ms):</strong> Toggle between 1 and 2 lines per note in Multinote mode<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> in Combined, <span class="badge badge-green">Green</span> in Multinote
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">5</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Up (<code>_on_up_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Scroll note selection UP (higher pitches)<br>
+                                <strong>In Multinote mode:</strong> Shifts which 8 notes are visible<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when more notes available above
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">6</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Down (<code>_on_down_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Scroll note selection DOWN (lower pitches)<br>
+                                <strong>In Multinote mode:</strong> Shifts which 8 notes are visible<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when more notes available below
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">7</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Velocity (<code>_on_velocity_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Hold + Tap step:</strong> Cycle velocity for that note through 5 levels<br>
+                                <strong>Hold + Tap loop selector:</strong> Duplicate/extend clip content<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> always
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">8</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Mute (<code>_on_mute_button</code>)</div>
+                            <div class="btn-desc">
+                                <strong>Hold + Tap step:</strong> Toggle mute for that specific note<br>
+                                <strong>Hold + Tap note selector:</strong> Mute ALL instances of that note in the clip<br>
+                                <strong>Hold (>1000ms):</strong> Enable mute-shift mode for extended operations<br>
+                                <strong>Muted notes:</strong> Still in pattern but don't play (shown in red)<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> always
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Loop Selector Operations (Bottom-Right 4x4)</h3>
+                <p>The loop selector supports powerful pattern manipulation with modifier combinations:</p>
+
+                <table>
+                    <thead><tr><th>Action</th><th>Result</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Single tap</strong></td><td>Select that page for editing</td></tr>
+                        <tr><td><strong>Double-click</strong></td><td>Set loop boundaries to that single block</td></tr>
+                        <tr><td><strong>Hold first + Tap second</strong></td><td>Set loop range between the two blocks</td></tr>
+                        <tr><td><strong>Velocity + Hold first + Tap second</strong></td><td><strong>EXTEND/DUPLICATE</strong> pattern from first to second block</td></tr>
+                        <tr><td><strong>Mute + Hold first + Tap second</strong></td><td><strong>DELETE</strong> all notes in that range</td></tr>
+                        <tr><td><strong>Mute + Velocity + Hold + Tap</strong></td><td><strong>MUTE</strong> all notes in that range</td></tr>
+                        <tr><td><strong>Mute + Double-click</strong></td><td>Mute all notes in that single block</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-tip">
+                    <strong>Pattern Extension Workflow:</strong> To duplicate your 1-bar pattern to 2 bars: Hold Velocity → Hold loop page 1 → Tap loop page 2. Your pattern is now copied!
+                </div>
+
+                <h3>Velocity System</h3>
+                <p>The drum sequencer uses a 5-level velocity system. Each press of a step while holding Velocity cycles to the next level:</p>
+
+                <table>
+                    <thead><tr><th>Level</th><th>Velocity Value</th><th>Visual Brightness</th></tr></thead>
+                    <tbody>
+                        <tr><td>1 (softest)</td><td>20</td><td>Very dim green</td></tr>
+                        <tr><td>2</td><td>50</td><td>Dim green</td></tr>
+                        <tr><td>3 (default)</td><td>80</td><td>Medium green</td></tr>
+                        <tr><td>4</td><td>105</td><td>Bright green</td></tr>
+                        <tr><td>5 (loudest)</td><td>127</td><td>Full bright green</td></tr>
+                    </tbody>
+                </table>
+
+                <pre><code>VELOCITY_LEVELS = [20, 50, 80, 105, 127]
+DEFAULT_VELOCITY_INDEX = 2  # = velocity 80</code></pre>
+
+                <h3>Quantization Values</h3>
+                <table>
+                    <thead><tr><th>Setting</th><th>Steps per Bar</th><th>Use Case</th></tr></thead>
+                    <tbody>
+                        <tr><td>1/4 note</td><td>4 steps</td><td>Simple kick patterns</td></tr>
+                        <tr><td>1/8 note</td><td>8 steps</td><td>Standard hi-hat patterns</td></tr>
+                        <tr><td>1/16 note</td><td>16 steps</td><td>Most common, detailed patterns</td></tr>
+                        <tr><td>1/32 note</td><td>32 steps</td><td>Very detailed, rolls, fills</td></tr>
+                    </tbody>
+                </table>
+
+                <pre><code>QUANTIZATION_MAP = [1.0, 0.5, 0.25, 0.125]  # beats per step
+QUANTIZATION_NAMES = ["1/4", "1/8", "1/16", "1/32"]</code></pre>
+
+                <h3>Step Colors</h3>
+                <table>
+                    <thead><tr><th>Color</th><th>Meaning</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-green">Green (5 brightnesses)</span></td><td>Active note - brightness indicates velocity</td></tr>
+                        <tr><td><span class="badge badge-red">Red (dim)</span></td><td>Muted note - note exists but won't play</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (pulsing)</span></td><td>Current playhead position</td></tr>
+                        <tr><td>Off</td><td>Empty step</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Loop Selector Colors</h3>
+                <table>
+                    <thead><tr><th>Color</th><th>Meaning</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-amber">Amber (bright)</span></td><td>Currently selected/editing page</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (dim)</span></td><td>Page within clip loop (has content)</td></tr>
+                        <tr><td><span class="badge badge-green">Green (pulsing)</span></td><td>Currently playing page</td></tr>
+                        <tr><td>Off</td><td>Page outside clip loop</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Workflow Tips</h3>
+
+                <div class="card">
+                    <h4>Creating a Basic Drum Pattern</h4>
+                    <ol>
+                        <li>Select a track with a Drum Rack</li>
+                        <li>Create/select a MIDI clip</li>
+                        <li>In Combined mode, use bottom-left 4x4 to select kick drum</li>
+                        <li>Tap steps in top half to place kick on beats 1 and 3</li>
+                        <li>Select snare from pad selector, add on beats 2 and 4</li>
+                        <li>Select hi-hat, add on all 8th notes</li>
+                        <li>Use Velocity+step to add dynamics to hi-hats</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Extending Patterns</h4>
+                    <ol>
+                        <li>Create pattern in first loop page</li>
+                        <li>Hold Velocity button</li>
+                        <li>Tap the NEXT loop page button (bottom-right)</li>
+                        <li>Pattern is duplicated to that page</li>
+                        <li>Edit the copy to create variation</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Using Mute for Arrangement</h4>
+                    <ol>
+                        <li>Create full pattern with all drums</li>
+                        <li>Hold Mute button</li>
+                        <li>Tap specific steps to mute them</li>
+                        <li>Duplicate page, unmute different notes for variation</li>
+                        <li>Muted notes shown in red - easy to see what's disabled</li>
+                    </ol>
+                </div>
+
+                <h3>Lock Modes Explained</h3>
+                <ul>
+                    <li><strong>Unlocked (default):</strong> Sequencer follows session navigation - edit whatever clip is selected</li>
+                    <li><strong>Clip Lock:</strong> Sequencer stays on ONE specific clip, even if you navigate away in session</li>
+                    <li><strong>Track Lock:</strong> Sequencer stays on current track but follows which clip is selected on that track</li>
+                </ul>
+
+                <div class="alert alert-tip">
+                    <strong>Pro Tip:</strong> Use Track Lock when building a song - you can trigger different clips while the sequencer always shows the current drum clip on that track.
+                </div>
+            </section>
+
+            <!-- Melodic Step Sequencer -->
+            <section id="melodic-sequencer">
+                <h2>Melodic Step Sequencer</h2>
+                <p>A powerful 7-note polyphonic step sequencer with 4 editing pages for pitch, velocity, note length, and octave. Perfect for creating melodic sequences, chord progressions, and basslines.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--green);"></span>
+                    Press <kbd>User 2</kbd> twice to activate
+                </div>
+
+                <h3>Grid Layout</h3>
+                <table>
+                    <thead><tr><th>Area</th><th>Function</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Rows 1-7</strong></td><td>7-row note editor (7 notes per step = 7-note polyphony)</td></tr>
+                        <tr><td><strong>Row 8</strong></td><td>Loop/Page selector - navigate through clip pages</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>4 Editing Pages</h3>
+                <p>Each page shows the same 8 steps but edits a different parameter. Use side buttons 5-8 to switch pages:</p>
+
+                <div class="card">
+                    <h4>Page 1: Notes (Pitch Editing) - <code>MELODIC_MODE_NOTES</code></h4>
+                    <p>Default view. Edit which notes play at each step.</p>
+                    <ul>
+                        <li><strong>Rows 1-7:</strong> Each row represents one note in a potential 7-note chord</li>
+                        <li><strong>Columns 1-8:</strong> 8 sequential steps</li>
+                        <li><strong>Tap cell:</strong> Add/remove note at that step and pitch</li>
+                        <li><strong>Scale-aware:</strong> Only shows notes from current scale</li>
+                    </ul>
+                    <p><strong>Note Colors:</strong></p>
+                    <table>
+                        <tr><td><span class="badge badge-amber">Amber</span></td><td>Root note of scale</td></tr>
+                        <tr><td><span class="badge badge-green">Green (bright)</span></td><td>3rd and 5th intervals</td></tr>
+                        <tr><td><span class="badge badge-green">Green (dim)</span></td><td>Other scale notes</td></tr>
+                        <tr><td><span class="badge badge-red">Red (pulsing)</span></td><td>Current playhead step</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>Page 2: Octave Editing - <code>MELODIC_MODE_NOTES_OCTAVES</code></h4>
+                    <p>Adjust the octave for each step (affects all notes at that step).</p>
+                    <ul>
+                        <li><strong>Rows 1-7:</strong> Octave selector (row 1 = octave 6, row 7 = octave 0)</li>
+                        <li><strong>Columns 1-8:</strong> 8 sequential steps</li>
+                        <li><strong>Tap cell:</strong> Set octave for that step</li>
+                        <li><strong>Range:</strong> 7 octaves (0-6)</li>
+                    </ul>
+                    <p><strong>Octave Colors:</strong></p>
+                    <table>
+                        <tr><td><span class="badge badge-amber">Amber (bright)</span></td><td>Selected octave for this step</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (dim)</span></td><td>Other octave options</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>Page 3: Velocity Editing - <code>MELODIC_MODE_NOTES_VELOCITIES</code></h4>
+                    <p>Adjust velocity (volume/intensity) for each step.</p>
+                    <ul>
+                        <li><strong>Rows 1-7:</strong> Velocity selector (row 1 = 127, row 7 = 0/mute)</li>
+                        <li><strong>Columns 1-8:</strong> 8 sequential steps</li>
+                        <li><strong>Tap cell:</strong> Set velocity for that step</li>
+                        <li><strong>Row 7 = 0:</strong> Effectively mutes the step</li>
+                    </ul>
+                    <p><strong>Velocity Values:</strong></p>
+                    <pre><code>MELODIC_VELOCITY_MAP = [0, 30, 60, 80, 100, 115, 127]
+Row 7: 0 (mute), Row 6: 30, Row 5: 60, Row 4: 80 (default), Row 3: 100, Row 2: 115, Row 1: 127 (max)</code></pre>
+                    <p><strong>Velocity Colors:</strong></p>
+                    <table>
+                        <tr><td><span class="badge badge-green">Green (bright)</span></td><td>Selected velocity for this step</td></tr>
+                        <tr><td><span class="badge badge-green">Green (dim)</span></td><td>Other velocity options</td></tr>
+                        <tr><td><span class="badge badge-red">Red</span></td><td>Muted (velocity 0)</td></tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h4>Page 4: Length Editing - <code>MELODIC_MODE_NOTES_LENGTHS</code></h4>
+                    <p>Adjust note duration for each step.</p>
+                    <ul>
+                        <li><strong>Rows 1-7:</strong> Length selector</li>
+                        <li><strong>Columns 1-8:</strong> 8 sequential steps</li>
+                        <li><strong>Tap cell:</strong> Set note length for that step</li>
+                    </ul>
+                    <p><strong>Length Values (in steps):</strong></p>
+                    <pre><code>NOTE_LENGTH_MAP = [1, 2, 3, 4, 8, 16, 32]
+Row 7: 1 step, Row 6: 2 steps, Row 5: 3 steps, Row 4: 4 steps (1 beat),
+Row 3: 8 steps (2 beats), Row 2: 16 steps (1 bar), Row 1: 32 steps (2 bars)</code></pre>
+                    <p><strong>Length Colors:</strong></p>
+                    <table>
+                        <tr><td><span class="badge badge-amber">Amber (bright)</span></td><td>Selected length for this step</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (dim)</span></td><td>Other length options</td></tr>
+                    </table>
+                </div>
+
+                <h3>Side Buttons (Complete Reference)</h3>
+
+                <div class="side-buttons-list">
+                    <div class="side-button-item">
+                        <div class="btn-num">1</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Scale</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Enter Scale Selection overlay<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">2</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Lock</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Lock to current clip<br>
+                                <strong>Long press:</strong> Lock to current track<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> when locked
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">3</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Quantize</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Cycle quantization (1/4 → 1/8 → 1/16 → 1/32)<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">4</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Random</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Randomize the current editing parameter for ALL steps in loop<br>
+                                <strong>In Notes page:</strong> Randomizes pitches (0-8 range)<br>
+                                <strong>In Octave page:</strong> Randomizes octaves (2-5 range)<br>
+                                <strong>In Velocity page:</strong> Randomizes velocities (0-6 range)<br>
+                                <strong>In Length page:</strong> Randomizes lengths (0-3 range, shorter lengths favored)<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">5</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Length</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Switch to Length editing page<br>
+                                <strong>Hold + Tap grid (cols 0-3):</strong> Set ALL steps in loop to that length<br>
+                                <strong>Hold + Tap grid (cols 4-7, rows 0-2):</strong> INCREMENT length for all steps<br>
+                                <strong>Hold + Tap grid (cols 4-7, rows 4-6):</strong> DECREMENT length for all steps<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">6</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Octave</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Switch to Octave editing page<br>
+                                <strong>Hold + Tap grid (cols 0-3):</strong> Set ALL steps in loop to that octave<br>
+                                <strong>Hold + Tap grid (cols 4-7, rows 0-2):</strong> INCREMENT octave for all steps<br>
+                                <strong>Hold + Tap grid (cols 4-7, rows 4-6):</strong> DECREMENT octave for all steps<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">7</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Velocity</div>
+                            <div class="btn-desc">
+                                <strong>Short press:</strong> Switch to Velocity editing page<br>
+                                <strong>Hold + Tap grid (cols 0-3):</strong> Set ALL steps in loop to that velocity<br>
+                                <strong>Hold + Tap grid (cols 4-7, rows 0-2):</strong> INCREMENT velocity for all steps<br>
+                                <strong>Hold + Tap grid (cols 4-7, rows 4-6):</strong> DECREMENT velocity for all steps<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">8</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Notes</div>
+                            <div class="btn-desc">
+                                <strong>Double-press (within 500ms):</strong> Toggle Mono/Poly mode<br>
+                                <strong>Hold + Tap grid:</strong> Clear all notes, set ONLY that pitch across all steps in loop<br>
+                                <strong>Monophonic:</strong> Only 1 note per step (adding note clears others)<br>
+                                <strong>Polyphonic:</strong> Up to 7 notes per step (chords)<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Batch Operations Grid Layout</h3>
+                <p>When holding a mode button (Length/Octave/Velocity/Notes), the grid splits into two zones:</p>
+                <table>
+                    <thead><tr><th>Grid Zone</th><th>Function</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Columns 0-3 (Left half)</strong></td><td>Direct value setting - tap row to set ALL steps to that value</td></tr>
+                        <tr><td><strong>Columns 4-7, Rows 0-2 (Top-right)</strong></td><td>INCREMENT value for all steps in loop</td></tr>
+                        <tr><td><strong>Columns 4-7, Rows 4-6 (Bottom-right)</strong></td><td>DECREMENT value for all steps in loop</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Page/Loop Selector (Row 8)</h3>
+                <p>The bottom row shows the clip pages and allows navigation:</p>
+                <table>
+                    <thead><tr><th>Color</th><th>Meaning</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-amber">Amber (bright)</span></td><td>Currently selected/editing page</td></tr>
+                        <tr><td><span class="badge badge-amber">Amber (dim)</span></td><td>Page within clip loop</td></tr>
+                        <tr><td><span class="badge badge-green">Green (pulsing)</span></td><td>Currently playing page</td></tr>
+                        <tr><td>Off</td><td>Page outside clip loop</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Mono vs Poly Mode</h3>
+                <p>Double-press the <strong>Notes</strong> button to toggle:</p>
+
+                <table>
+                    <thead><tr><th>Mode</th><th>Behavior</th><th>Use Case</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Polyphonic</strong></td><td>Up to 7 notes per step, chords allowed</td><td>Chord progressions, pads, rich harmonies</td></tr>
+                        <tr><td><strong>Monophonic</strong></td><td>Only 1 note per step, new note replaces old</td><td>Basslines, lead melodies, arpeggios</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Workflow Examples</h3>
+
+                <div class="card">
+                    <h4>Creating a Chord Progression</h4>
+                    <ol>
+                        <li>Enter Melodic Sequencer (User 2 x2)</li>
+                        <li>Make sure you're in Notes page (button 8)</li>
+                        <li>For step 1, tap rows 1, 3, and 5 to create a triad</li>
+                        <li>For step 3, tap different combination for next chord</li>
+                        <li>Switch to Length page (button 5), set all to 4 steps (1 beat)</li>
+                        <li>Switch to Velocity page (button 7), adjust dynamics</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Creating a Bassline</h4>
+                    <ol>
+                        <li>Double-press Notes button to enable Monophonic mode</li>
+                        <li>Tap notes for each step - only one note per step</li>
+                        <li>Switch to Octave page (button 6) to add octave jumps</li>
+                        <li>Switch to Length page, make some notes short (1 step) for staccato</li>
+                        <li>Press Random button while in Notes page for instant variation</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Using Randomization Creatively</h4>
+                    <ol>
+                        <li>Create basic pattern with notes you like</li>
+                        <li>Switch to Velocity page, press Random for humanized dynamics</li>
+                        <li>Switch to Octave page, press Random for register variation</li>
+                        <li>Switch to Length page, press Random for rhythmic interest</li>
+                        <li>Undo (in Session mode) if result isn't good</li>
+                    </ol>
+                </div>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li><strong>File:</strong> <code>StepSequencerComponent2.py</code></li>
+                    <li><strong>MIDI Channel:</strong> 2</li>
+                    <li><strong>Polyphony:</strong> 7 notes maximum per step</li>
+                    <li><strong>Step display:</strong> 8 steps visible at once</li>
+                    <li><strong>Total steps:</strong> Limited by clip length, navigate with Row 8</li>
+                </ul>
+            </section>
+
+            <!-- Mixer Mode -->
+            <section id="mixer-mode">
+                <h2>Mixer Mode</h2>
+                <p>Full-featured mixing control for 8 tracks simultaneously. Control volume, pan, sends, and track states (mute, solo, arm) with instant visual feedback.</p>
+
+                <div class="mode-indicator">
+                    <span class="dot" style="background: var(--amber);"></span>
+                    Press <kbd>Mixer</kbd> to activate
+                </div>
+
+                <h3>Sub-modes Overview</h3>
+                <p>Mixer mode has 5 sub-modes, selected via side buttons:</p>
+
+                <table>
+                    <thead><tr><th>Sub-mode</th><th>MIDI Channel</th><th>Layout</th></tr></thead>
+                    <tbody>
+                        <tr><td>Overview (default)</td><td>6</td><td>Rows 1-4: Vol/Pan/SendA/SendB, Rows 5-8: Stop/Mute/Solo/Arm</td></tr>
+                        <tr><td>Volume</td><td>7</td><td>Full 8x8 grid as 8 volume sliders</td></tr>
+                        <tr><td>Pan</td><td>8</td><td>Full 8x8 grid as 8 pan sliders</td></tr>
+                        <tr><td>Send A</td><td>9</td><td>Full 8x8 grid as 8 Send A sliders</td></tr>
+                        <tr><td>Send B</td><td>10</td><td>Full 8x8 grid as 8 Send B sliders</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Overview Mode Layout (Default)</h3>
+                <p>Shows everything at once - one row per function. Rows 1-4 act as both indicators AND reset buttons:</p>
+
+                <table>
+                    <thead><tr><th>Row</th><th>Function</th><th>Tap Action</th><th>Color Coding</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Row 1</strong></td><td>Volume (8 tracks)</td><td><strong>Reset to default (0 dB)</strong></td><td><span class="badge badge-green">Green</span> = at default, dim = adjusted</td></tr>
+                        <tr><td><strong>Row 2</strong></td><td>Pan (8 tracks)</td><td><strong>Reset to center</strong></td><td><span class="badge badge-amber">Amber</span> = at default, dim = adjusted</td></tr>
+                        <tr><td><strong>Row 3</strong></td><td>Send A (8 tracks)</td><td><strong>Reset to 0</strong></td><td><span class="badge badge-green">Green</span> = at default, dim = adjusted</td></tr>
+                        <tr><td><strong>Row 4</strong></td><td>Send B (8 tracks)</td><td><strong>Reset to 0</strong></td><td><span class="badge badge-green">Green</span> = at default, dim = adjusted</td></tr>
+                        <tr><td><strong>Row 5</strong></td><td>Stop clip buttons</td><td>Stop clip on that track</td><td><span class="badge badge-amber">Amber</span> if playing, <span class="badge">Off</span> if stopped</td></tr>
+                        <tr><td><strong>Row 6</strong></td><td>Mute buttons</td><td>Toggle mute</td><td><span class="badge badge-amber">Amber</span> if muted, <span class="badge">Off</span> if active</td></tr>
+                        <tr><td><strong>Row 7</strong></td><td>Solo buttons</td><td>Toggle solo</td><td><span class="badge badge-red">Red</span> if soloed, <span class="badge">Off</span> if not</td></tr>
+                        <tr><td><strong>Row 8</strong></td><td>Arm buttons</td><td>Toggle arm</td><td><span class="badge badge-red">Red</span> if armed, <span class="badge">Off</span> if not</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-tip">
+                    <strong>Tip:</strong> Rows 1-4 in Overview mode are "smart" buttons - they show the current state AND reset to default when tapped. This is useful for quickly resetting a track's volume or pan to neutral.
+                </div>
+
+                <h3>Side Buttons (Complete Reference)</h3>
+
+                <div class="side-buttons-list">
+                    <div class="side-button-item">
+                        <div class="btn-num">1</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Volume</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Enter Volume sub-mode (full 8-row sliders for 8 tracks)<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">2</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Pan</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Enter Pan sub-mode (full 8-row sliders for 8 tracks)<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">3</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Send A</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Enter Send A sub-mode (full 8-row sliders for 8 tracks)<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">4</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Send B</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Enter Send B sub-mode (full 8-row sliders for 8 tracks)<br>
+                                <strong>Color:</strong> <span class="badge badge-green">Green</span> when active
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">5</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Stop All</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Stop ALL playing clips on ALL tracks (visible and not visible)<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> always
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">6</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Mute All</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Unmute ALL tracks (clears all mutes globally)<br>
+                                <strong>Color:</strong> <span class="badge badge-amber">Amber</span> always
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">7</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Solo All</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Unsolo ALL tracks (clears all solos globally)<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> always
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-button-item">
+                        <div class="btn-num">8</div>
+                        <div class="btn-info">
+                            <div class="btn-label">Arm All</div>
+                            <div class="btn-desc">
+                                <strong>Press:</strong> Unarm ALL tracks (disables recording on all tracks)<br>
+                                <strong>Color:</strong> <span class="badge badge-red">Red</span> always
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Slider Value Maps</h3>
+                <p>In slider sub-modes, each row represents a specific value:</p>
+
+                <h4>Volume Map (8 steps)</h4>
+                <pre><code>VOLUME_MAP = [0.0, 0.142882, 0.302414, 0.4, 0.55, 0.7, 0.85, 1.0]
+Row 8: Off (0%)
+Row 7: ~14% (very quiet)
+Row 6: ~30%
+Row 5: ~40%
+Row 4: ~55%
+Row 3: ~70%
+Row 2: ~85%
+Row 1: 100% (full volume / 0dB)</code></pre>
+
+                <h4>Pan Map (8 steps)</h4>
+                <pre><code>PAN_MAP = [-1.0, -0.634921, -0.31746, 0.0, 0.0, 0.31746, 0.634921, 1.0]
+Row 8: Full Left
+Row 7: ~64% Left
+Row 6: ~32% Left
+Row 5: Center
+Row 4: Center
+Row 3: ~32% Right
+Row 2: ~64% Right
+Row 1: Full Right</code></pre>
+
+                <h4>Send Map (8 steps)</h4>
+                <pre><code>SEND_MAP = [0.0, 0.103536, 0.164219, 0.238439, 0.343664, 0.55, 0.774942, 1.0]
+Row 8: No send (0%)
+Row 7: ~10%
+Row 6: ~16%
+Row 5: ~24%
+Row 4: ~34%
+Row 3: ~55%
+Row 2: ~77%
+Row 1: Full send (100%)</code></pre>
+
+                <h3>Slider Sub-mode Colors</h3>
+                <table>
+                    <thead><tr><th>Color</th><th>Meaning</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="badge badge-green">Green (bright)</span></td><td>Current value position</td></tr>
+                        <tr><td><span class="badge badge-green">Green (dim)</span></td><td>Below current value (value bar)</td></tr>
+                        <tr><td><span class="badge">Off</span></td><td>Above current value</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Navigation (Top Buttons)</h3>
+                <p>Arrow buttons scroll through tracks beyond the visible 8:</p>
+                <table>
+                    <tr><td><kbd>Left</kbd></td><td>Scroll tracks left (show previous 8)</td></tr>
+                    <tr><td><kbd>Right</kbd></td><td>Scroll tracks right (show next 8)</td></tr>
+                    <tr><td><kbd>Up</kbd></td><td>Scroll scenes up</td></tr>
+                    <tr><td><kbd>Down</kbd></td><td>Scroll scenes down</td></tr>
+                </table>
+
+                <h3>Workflow Examples</h3>
+
+                <div class="card">
+                    <h4>Quick Mix Adjustment</h4>
+                    <ol>
+                        <li>Press Mixer button to enter Overview mode</li>
+                        <li>See all 8 tracks' volume, pan, sends at once</li>
+                        <li>Tap Row 1 to adjust individual track volumes</li>
+                        <li>For precise control, press Volume side button for full sliders</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h4>Performance Mixing</h4>
+                    <ol>
+                        <li>Use Overview mode to see everything</li>
+                        <li>Use Row 6 (Mute) to cut tracks in/out</li>
+                        <li>Use Row 7 (Solo) to isolate tracks for drops</li>
+                        <li>Use Stop All (side 5) for dramatic stops</li>
+                        <li>Use Mute All (side 6) to reset all mutes instantly</li>
+                    </ol>
+                </div>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li><strong>Files:</strong> <code>MixerComponent.py</code>, <code>SpecialMixerComponent.py</code></li>
+                    <li><strong>MIDI Channels:</strong> 6 (base), 7 (volume), 8 (pan), 9 (send A), 10 (send B)</li>
+                    <li><strong>Tracks visible:</strong> 8 at a time (use navigation to see more)</li>
+                </ul>
+            </section>
+
+            <!-- User Modes -->
+            <section id="user-modes">
+                <h2>User Modes</h2>
+                <p>User Mode 1 and User Mode 2 provide additional customizable MIDI control.</p>
+
+                <h3>User 1 Mode</h3>
+                <p>Press <kbd>User 1</kbd> three times to access plain User 1 mode (MIDI Channel 4).</p>
+                <p>All 64 matrix buttons and 8 side buttons are available for custom MIDI mapping.</p>
+
+                <h3>User 2 Mode</h3>
+                <p>Press <kbd>User 2</kbd> three times to access plain User 2 mode (MIDI Channel 5).</p>
+                <p>All buttons available for custom mapping with navigation enabled.</p>
+
+                <div class="alert alert-info">
+                    <strong>Note:</strong> The default mode cycling is configurable in <code>Settings.py</code>.
+                </div>
+            </section>
+
+            <!-- Musical Scales Reference -->
+            <section id="scales">
+                <h2>Musical Scales Reference</h2>
+                <p>Launchpad95 includes 34 musical scales for the Instrument and Step Sequencer modes. The first 26 are the original scales, plus 8 new scales added in version 2.0.</p>
+
+                <h3>Original Scales (0-25)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Scale Name</th>
+                            <th>Intervals</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>0</td><td>Major</td><td>0, 2, 4, 5, 7, 9, 11</td><td>Ionian mode - the most common Western scale</td></tr>
+                        <tr><td>1</td><td>Minor</td><td>0, 2, 3, 5, 7, 8, 10</td><td>Natural minor / Aeolian mode</td></tr>
+                        <tr><td>2</td><td>Dorian</td><td>0, 2, 3, 5, 7, 9, 10</td><td>Minor with raised 6th - jazz, funk</td></tr>
+                        <tr><td>3</td><td>Mixolydian</td><td>0, 2, 4, 5, 7, 9, 10</td><td>Major with flat 7th - rock, blues</td></tr>
+                        <tr><td>4</td><td>Lydian</td><td>0, 2, 4, 6, 7, 9, 11</td><td>Major with raised 4th - dreamy, floating</td></tr>
+                        <tr><td>5</td><td>Phrygian</td><td>0, 1, 3, 5, 7, 8, 10</td><td>Minor with flat 2nd - Spanish, metal</td></tr>
+                        <tr><td>6</td><td>Locrian</td><td>0, 1, 3, 5, 6, 8, 10</td><td>Diminished mode - unstable, tense</td></tr>
+                        <tr><td>7</td><td>Diminished</td><td>0, 1, 3, 4, 6, 7, 9, 10</td><td>Half-whole diminished - jazz, tension</td></tr>
+                        <tr><td>8</td><td>Whole-half</td><td>0, 2, 3, 5, 6, 8, 9, 11</td><td>Whole-half diminished - symmetric</td></tr>
+                        <tr><td>9</td><td>Whole Tone</td><td>0, 2, 4, 6, 8, 10</td><td>All whole steps - dreamlike, impressionist</td></tr>
+                        <tr><td>10</td><td>Minor Blues</td><td>0, 3, 5, 6, 7, 10</td><td>Blues scale with blue notes</td></tr>
+                        <tr><td>11</td><td>Minor Pentatonic</td><td>0, 3, 5, 7, 10</td><td>Five-note minor - rock, pop, world</td></tr>
+                        <tr><td>12</td><td>Major Pentatonic</td><td>0, 2, 4, 7, 9</td><td>Five-note major - folk, country, pop</td></tr>
+                        <tr><td>13</td><td>Harmonic Minor</td><td>0, 2, 3, 5, 7, 8, 11</td><td>Minor with raised 7th - classical, metal</td></tr>
+                        <tr><td>14</td><td>Melodic Minor</td><td>0, 2, 3, 5, 7, 9, 11</td><td>Jazz melodic minor (ascending form)</td></tr>
+                        <tr><td>15</td><td>Super Locrian</td><td>0, 1, 3, 4, 6, 8, 10</td><td>Altered scale - jazz dominant alterations</td></tr>
+                        <tr><td>16</td><td>Bhairav</td><td>0, 1, 4, 5, 7, 8, 11</td><td>Indian classical raga - morning raga</td></tr>
+                        <tr><td>17</td><td>Hungarian Minor</td><td>0, 2, 3, 6, 7, 8, 11</td><td>Double harmonic minor - exotic, dramatic</td></tr>
+                        <tr><td>18</td><td>Minor Gypsy</td><td>0, 1, 4, 5, 7, 8, 10</td><td>Gypsy/Romani scale - Eastern European</td></tr>
+                        <tr><td>19</td><td>Hirojoshi</td><td>0, 2, 3, 7, 8</td><td>Japanese pentatonic - serene, Asian</td></tr>
+                        <tr><td>20</td><td>In-Sen</td><td>0, 1, 5, 7, 10</td><td>Japanese scale - melancholic</td></tr>
+                        <tr><td>21</td><td>Iwato</td><td>0, 1, 5, 6, 10</td><td>Japanese scale - dark, mysterious</td></tr>
+                        <tr><td>22</td><td>Kumoi</td><td>0, 2, 3, 7, 9</td><td>Japanese pentatonic - traditional koto</td></tr>
+                        <tr><td>23</td><td>Pelog</td><td>0, 1, 3, 4, 7, 8</td><td>Indonesian gamelan scale</td></tr>
+                        <tr><td>24</td><td>Spanish</td><td>0, 1, 3, 4, 5, 6, 8, 10</td><td>Phrygian dominant - flamenco</td></tr>
+                        <tr><td>25</td><td>IonEol</td><td>0, 2, 3, 4, 5, 7, 8, 9, 10, 11</td><td>Combined Major/Minor - versatile</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>New Scales (26-33) - Added in v2.0</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Scale Name</th>
+                            <th>Intervals</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>26</td><td>Arabic</td><td>0, 1, 4, 5, 7, 8, 11</td><td>Double harmonic major - Middle Eastern</td></tr>
+                        <tr><td>27</td><td>Japanese</td><td>0, 1, 5, 7, 8</td><td>Hirajoshi variant - traditional Japan</td></tr>
+                        <tr><td>28</td><td>Enigmatic</td><td>0, 1, 4, 6, 8, 10, 11</td><td>Verdi's enigmatic scale - mysterious</td></tr>
+                        <tr><td>29</td><td>Neapolitan</td><td>0, 1, 3, 5, 7, 9, 11</td><td>Neapolitan major - classical, dramatic</td></tr>
+                        <tr><td>30</td><td>Persian</td><td>0, 1, 4, 5, 6, 8, 11</td><td>Persian scale - Middle Eastern modal</td></tr>
+                        <tr><td>31</td><td>Algerian</td><td>0, 2, 3, 5, 6, 7, 8, 11</td><td>North African - exotic, complex</td></tr>
+                        <tr><td>32</td><td>Acoustic</td><td>0, 2, 4, 6, 7, 9, 10</td><td>Lydian dominant - overtone series</td></tr>
+                        <tr><td>33</td><td>Blues Major</td><td>0, 2, 3, 4, 7, 9</td><td>Major blues scale - bright blues</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Scale Categories</h3>
+
+                <div class="card">
+                    <h4>Western Modes (0-6)</h4>
+                    <p>The 7 modes of the major scale. Each starts from a different degree of the major scale.</p>
+                    <p><strong>Bright to dark:</strong> Lydian → Ionian (Major) → Mixolydian → Dorian → Aeolian (Minor) → Phrygian → Locrian</p>
+                </div>
+
+                <div class="card">
+                    <h4>Pentatonic Scales (11, 12)</h4>
+                    <p>5-note scales that work in almost any context. Great for improvisation and melodies.</p>
+                    <ul>
+                        <li>Minor Pentatonic: Rock, blues, pop - the "safe" scale for soloing</li>
+                        <li>Major Pentatonic: Country, folk, happy melodies</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Blues Scales (10, 33)</h4>
+                    <p>Pentatonic scales with added "blue notes" for that classic blues sound.</p>
+                    <ul>
+                        <li>Minor Blues: Dark, soulful - adds b5 "blue note"</li>
+                        <li>Blues Major: Bright, happy blues - major pentatonic with chromatic passing tone</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Japanese Scales (19-22, 27)</h4>
+                    <p>Traditional Japanese pentatonic and modal scales with distinctive intervals.</p>
+                    <ul>
+                        <li>Hirojoshi: Peaceful, meditative</li>
+                        <li>In-Sen: Dark, introspective</li>
+                        <li>Iwato: Very dark, dissonant</li>
+                        <li>Kumoi: Traditional koto music</li>
+                        <li>Japanese: General-purpose Asian sound</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Middle Eastern/Mediterranean (5, 16, 18, 24, 26, 30)</h4>
+                    <p>Scales with augmented seconds that create exotic, Eastern sounds.</p>
+                    <ul>
+                        <li>Phrygian: Spanish/Flamenco foundation</li>
+                        <li>Spanish: Full flamenco scale</li>
+                        <li>Bhairav: North Indian morning raga</li>
+                        <li>Minor Gypsy: Eastern European</li>
+                        <li>Arabic: Middle Eastern double harmonic</li>
+                        <li>Persian: Persian classical music</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Symmetric Scales (7-9)</h4>
+                    <p>Scales with repeating interval patterns - useful for tension and resolution.</p>
+                    <ul>
+                        <li>Diminished (Half-Whole): 8-note scale, alternating half/whole steps</li>
+                        <li>Whole-Half: Same intervals starting with whole step</li>
+                        <li>Whole Tone: 6 notes, all whole steps - no resolution</li>
+                    </ul>
+                </div>
+
+                <h3>Quick Scale Selection (15 Most-Used)</h3>
+                <p>These scales appear in Quick Scale mode (long-press Scale button):</p>
+                <pre><code>Quick Scale Indices: [0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 18, 24]
+
+Major, Minor, Dorian, Mixolydian, Lydian, Phrygian, Locrian, Diminished,
+Minor Blues, Minor Pentatonic, Major Pentatonic, Harmonic Minor, Melodic Minor,
+Minor Gypsy, Spanish</code></pre>
+            </section>
+
+            <!-- MIDI Channels -->
+            <section id="midi-channels">
+                <h2>MIDI Channel Reference</h2>
+                <p>Each mode uses specific MIDI channels for communication:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mode</th>
+                            <th>Channel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Session / Pro Session</td><td>0</td></tr>
+                        <tr><td>Drum Step Sequencer</td><td>1</td></tr>
+                        <tr><td>Melodic Step Sequencer</td><td>2</td></tr>
+                        <tr><td>Device Controller</td><td>3</td></tr>
+                        <tr><td>User Mode 1</td><td>4</td></tr>
+                        <tr><td>User Mode 2</td><td>5</td></tr>
+                        <tr><td>Mixer (base)</td><td>6</td></tr>
+                        <tr><td>Mixer Volume</td><td>7</td></tr>
+                        <tr><td>Mixer Pan</td><td>8</td></tr>
+                        <tr><td>Mixer Send A</td><td>9</td></tr>
+                        <tr><td>Mixer Send B</td><td>10</td></tr>
+                        <tr><td>Instrument Controller</td><td>11-15</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Settings -->
+            <section id="settings">
+                <h2>Settings Configuration</h2>
+                <p>Edit <code>Settings.py</code> to customize Launchpad95 behavior:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>SESSION__STOP_BUTTONS</code></td>
+                            <td>False</td>
+                            <td>Add stop buttons at bottom of session mode</td>
+                        </tr>
+                        <tr>
+                            <td><code>SESSION__LINK</code></td>
+                            <td>False</td>
+                            <td>Link sessions between multiple Launchpads</td>
+                        </tr>
+                        <tr>
+                            <td><code>STEPSEQ__LINK_WITH_SESSION</code></td>
+                            <td>False</td>
+                            <td>Step sequencer follows session navigation</td>
+                        </tr>
+                        <tr>
+                            <td><code>STEPSEQ__SAVE_SCALE</code></td>
+                            <td>None</td>
+                            <td>Save scale to clip name ("clip") or None</td>
+                        </tr>
+                        <tr>
+                            <td><code>INSTRUMENT__SAVE_SCALE</code></td>
+                            <td>None</td>
+                            <td>Save instrument scale ("clip", "track", or None)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>USER_MODES Configuration</h3>
+                <p>Customize which sub-modes appear when cycling through User 1 and User 2:</p>
+                <pre><code>USER_MODES = [
+    "instrument",      # User1 press 1
+    "device",          # User1 press 2
+    "user 1",          # User1 press 3
+    "drum stepseq",    # User2 press 1
+    "melodic stepseq", # User2 press 2
+    "user 2"           # User2 press 3
+]</code></pre>
+
+                <p>Available values: <code>"instrument"</code>, <code>"device"</code>, <code>"user 1"</code>, <code>"drum stepseq"</code>, <code>"melodic stepseq"</code>, <code>"user 2"</code></p>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="card">
+                    <h4>The Launchpad doesn't light up when I select Launchpad95</h4>
+                    <p>Check that you installed the script in the correct MIDI Remote Scripts folder. The folder must be named exactly <code>Launchpad95</code> (no "-master" suffix). Verify folder permissions and restart Ableton Live. See <a href="#debugging">Troubleshooting</a> for more details.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Note feedback isn't working in Instrument mode</h4>
+                    <p>Make sure to enable "Track" for both MIDI Input and Output in Live's MIDI preferences for the Launchpad ports.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Which Ableton Live versions are supported?</h4>
+                    <p>Launchpad95 works with Ableton Live 9.2 and later (32-bit or 64-bit, Mac or Windows, all editions).</p>
+                </div>
+
+                <div class="card">
+                    <h4>Can I use multiple Launchpads?</h4>
+                    <p>Yes! Enable <code>SESSION__LINK</code> in Settings.py to link sessions between multiple Launchpad95 instances.</p>
+                </div>
+
+                <div class="card">
+                    <h4>How do I see what the script is doing?</h4>
+                    <p>The script displays messages in Ableton's status bar (bottom of screen). For detailed debugging, enable <code>Live.Base.log()</code> statements in the Python files and check <code>Log.txt</code>. See <a href="#debugging">Troubleshooting &amp; Debugging</a>.</p>
+                </div>
+
+                <div class="card">
+                    <h4>How do I modify the script?</h4>
+                    <p>Edit the <code>.py</code> files in the Launchpad95 folder, save, then press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Windows) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Mac) to reload scripts without restarting Ableton.</p>
+                </div>
+
+                <div class="card">
+                    <h4>What does the M4L Helper device do?</h4>
+                    <p>The optional <code>Launchpad95Helper.amxd</code> Max for Live device provides an on-screen display showing current mode, scale, and other settings. It's not required for the script to work.</p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer style="margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-secondary);">
+                <p>Launchpad95 Manual - <a href="https://github.com/hdavid/Launchpad95">GitHub</a></p>
+            </footer>
+
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
